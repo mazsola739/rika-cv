@@ -7,9 +7,6 @@ working just like a dark/light theme toggle, in **Hungarian** and **English**.
 | --- | --- |
 | black & white, pill-shaped section titles, Archivo Black + Montserrat | the colours of the original PDF (pink header, crimson ring, lilac footer) and a page-wide rainbow from crimson at the top to violet at the bottom, with the flowers, stars and confetti of a unicorn card; Short Stack + Kode Mono 🦄 |
 
-The old print version (Canva, with the phone number masked) is kept in [`archive/RikaCV-canva-masked.pdf`](archive/RikaCV-canva-masked.pdf);
-the PDF download on the page is switched off (`SHOW_PDF` in `Toolbar.tsx`) until a new PDF is made from the page. All diagonal shapes run at the same 31° slope.
-
 The page has a **header** (photo, name, title, introduction), a two-column body (contact, expertise, languages |
 experience, projects, education) and a **footer** (skill rings in one row, and the small print: a playful one in the
 fun version, a serious one in the pro version).
