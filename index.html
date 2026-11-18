@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" data-mode="pro">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Erika Rostás – Full-stack Developer. React, TypeScript, Node.js, Jest. Switch between the professional and the fun version of the CV." />
+    <meta name="theme-color" content="#efefef" />
+    <title>Erika Rostás – Full-stack Developer</title>
+    <script>
+      // Pick the version before first paint so there is no flash of the wrong one.
+      // Mode: always pro, unless the link says ?mode=fun.
+      // Language: always English, unless the link says ?lang=hu.
+      ;(function () {
+        var params = new URLSearchParams(window.location.search)
+        document.documentElement.lang = params.get('lang') === 'hu' ? 'hu' : 'en'
+        if (params.get('mode') === 'fun') document.documentElement.dataset.mode = 'fun'
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

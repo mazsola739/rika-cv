@@ -1,0 +1,439 @@
+@import 'tailwindcss';
+
+/*
+ * The two CV versions work like a dark/light theme: <html data-mode="pro|fun">.
+ * Base utilities describe the pro look, `fun:` overrides them (just like `dark:`).
+ *
+ * The CV blocks are rendered in both versions on top of each other (VersionSlot), each copy marked with
+ * data-version="pro|fun" – inside a copy its own version counts, everywhere else the page's mode.
+ */
+@custom-variant fun (&:where([data-version='fun'], [data-version='fun'] *, [data-mode='fun'], [data-mode='fun'] :not([data-version], [data-version] *)));
+
+/*
+ * Palette of the fun version. The little flowers, stars and confetti (and the section bars, bullets, ink)
+ * come from a unicorn card ("You are sweet."); the bands, shapes and contact icons keep the colours of the
+ * original PDF (second group).
+ */
+:root {
+  --uni-turquoise: #52c5d6;
+  --uni-navy: #2b2468;
+  --uni-purple: #5f4797;
+  --uni-lavender: #a986c4;
+  --uni-pink: #ffb3d3;
+  --uni-hotpink: #ef4581;
+  --uni-blush: #ffe2ee;
+  --uni-sweet: #e3245e; /* the pink of the word "sweet." – for text */
+  --uni-red: #e2434f;
+  --uni-yellow: #ffc443;
+  --uni-orange: #fca447;
+  --uni-blue: #3f6f93;
+  --uni-leaf: #97b856;
+  --uni-gold: #ffcb5c;
+
+  /* Colours of the original PDF's fun page (bands, shapes, rings). */
+  --uni-candy: #f3c7cc; /* top band */
+  --uni-crimson: #9a0f2a; /* ring and bar around the photo, big top-right bar – and the top of the page rainbow */
+  --uni-maroon: #682d36; /* small top-right bar */
+  --uni-scarlet: #f10320; /* thin top-right line */
+  --uni-wine: #4b0d17; /* thin line above the photo bar */
+  --uni-tan: #b98a6f; /* thin line below the photo bar */
+  --uni-wisteria: #d9c0ee; /* bottom band */
+  --uni-violet: #8a2ae2; /* big bottom-left bar – and the bottom of the page rainbow */
+  --uni-orchid: #e98ced; /* small bottom-left bar */
+  --uni-indigo: #6b0de6; /* thin bottom-left line */
+  --uni-plum: #4a0081; /* skill rings */
+  --uni-lilac: #e7cdff; /* skill ring track */
+  /* the section title colours of the PDF – the middle of the page rainbow */
+  --uni-tangerine: #ffa500;
+  --uni-sun: #ffff00;
+  --uni-emerald: #0ce621;
+  --uni-aqua: #00cdd0;
+  --uni-sky: #0d9de6;
+}
+
+/*
+ * Page rainbow of the fun version: title pills, contact icons and flower bullets take the colour of their height
+ * on the page – one colour per horizontal band, from crimson at the top through orange, yellow, green, turquoise
+ * and blue to violet at the bottom. usePageOmbre (src/hooks/pageOmbre.ts) picks the two neighbouring colours
+ * (--ombre-from, --ombre-to) and how far between them the element sits (--ombre-mix).
+ */
+[data-ombre] {
+  --ombre-color: color-mix(
+    in oklch,
+    var(--ombre-from, var(--uni-crimson)),
+    var(--ombre-to, var(--uni-crimson)) var(--ombre-mix, 0%)
+  );
+}
+
+:root,
+[data-version='pro'] {
+  color-scheme: light;
+
+  --c-page: #ffffff;
+  --c-ink: #121212;
+  --c-band-top: #efefef;
+  --c-band-bottom: #efefef;
+
+  /* decorative shapes: the big ones black, the small bars and thin lines in shades of grey */
+  --c-shape: #151515;
+  --c-shape-soft: #5c5c5c;
+  --c-line: #7d7d7d;
+  --c-line-photo-top: #3a3a3a;
+  --c-line-photo-bottom: #a3a3a3;
+  --c-shape-bl: #151515;
+  --c-shape-bl-soft: #a3a3a3;
+  --c-line-bl: #5c5c5c;
+
+  /* skill rings */
+  --c-ring: #111111;
+  --c-ring-track: #c8d2db;
+
+  /* half the height of a section title pill (Section.tsx): the header and footer bands end / start at its midline */
+  --title-half: 1.375rem;
+
+  --ff-display: 'Archivo Black', 'Arial Black', ui-sans-serif, sans-serif;
+  --ff-heading: 'Montserrat Variable', ui-sans-serif, system-ui, sans-serif;
+  --ff-body: 'Montserrat Variable', ui-sans-serif, system-ui, sans-serif;
+}
+
+[data-mode='fun'],
+[data-version='fun'] {
+  --c-ink: var(--uni-navy);
+  --c-band-top: var(--uni-candy);
+  --c-band-bottom: var(--uni-wisteria);
+
+  /* the shapes, as in the original PDF */
+  --c-shape: var(--uni-crimson);
+  --c-shape-soft: var(--uni-maroon);
+  --c-line: var(--uni-scarlet);
+  --c-line-photo-top: var(--uni-wine);
+  --c-line-photo-bottom: var(--uni-tan);
+  --c-shape-bl: var(--uni-violet);
+  --c-shape-bl-soft: var(--uni-orchid);
+  --c-line-bl: var(--uni-indigo);
+
+  --c-ring: var(--uni-plum);
+  --c-ring-track: var(--uni-lilac);
+
+  --ff-display: 'Short Stack', 'Comic Relief', 'Comic Sans MS', cursive;
+  --ff-heading: 'Short Stack', 'Comic Relief', 'Comic Sans MS', cursive;
+  --ff-body: 'Kode Mono Variable', ui-monospace, monospace;
+}
+
+@theme inline {
+  --color-page: var(--c-page);
+  --color-ink: var(--c-ink);
+  --color-band-top: var(--c-band-top);
+  --color-band-bottom: var(--c-band-bottom);
+  --color-shape: var(--c-shape);
+  --color-shape-soft: var(--c-shape-soft);
+  --color-line: var(--c-line);
+  --color-line-photo-top: var(--c-line-photo-top);
+  --color-line-photo-bottom: var(--c-line-photo-bottom);
+  --color-shape-bl: var(--c-shape-bl);
+  --color-shape-bl-soft: var(--c-shape-bl-soft);
+  --color-line-bl: var(--c-line-bl);
+  --color-ring: var(--c-ring);
+  --color-ring-track: var(--c-ring-track);
+
+  --color-uni-turquoise: var(--uni-turquoise);
+  --color-uni-navy: var(--uni-navy);
+  --color-uni-purple: var(--uni-purple);
+  --color-uni-lavender: var(--uni-lavender);
+  --color-uni-pink: var(--uni-pink);
+  --color-uni-hotpink: var(--uni-hotpink);
+  --color-uni-blush: var(--uni-blush);
+  --color-uni-sweet: var(--uni-sweet);
+  --color-uni-red: var(--uni-red);
+  --color-uni-yellow: var(--uni-yellow);
+  --color-uni-orange: var(--uni-orange);
+  --color-uni-blue: var(--uni-blue);
+  --color-uni-leaf: var(--uni-leaf);
+  --color-uni-gold: var(--uni-gold);
+
+  --font-display: var(--ff-display);
+  --font-heading: var(--ff-heading);
+  --font-body: var(--ff-body);
+}
+
+/* Layout tokens of the CV sheet, shared by the grid and the background bands. */
+.cv-page {
+  --px: 1.25rem; /* horizontal padding */
+  --pt: 6.5rem; /* top padding (room for the toolbar on phones) */
+  --pb: 1.5rem;
+  --gap: 2.5rem; /* vertical gap of the stacked mobile layout */
+  --gx: 3rem; /* column gap on desktop */
+  --photo: 14rem;
+
+  @variant sm {
+    --px: 2.5rem;
+    --photo: 16rem;
+  }
+  @variant lg {
+    --px: 4rem;
+    --pt: 7rem;
+    --pb: 1.5rem;
+  }
+  @variant xl {
+    --photo: 18rem;
+  }
+}
+
+/* Circular reveal when switching versions (driven from useMode). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Language switch (useLang): the new language fades in over the old one. */
+:root[data-transition='lang']::view-transition-new(root) {
+  animation: lang-fade-in 260ms ease-out;
+}
+
+@keyframes lang-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/*
+ * Skill rings fill up to --value (set per ring) – when they scroll into view (see below)
+ * and every time their version becomes the visible one (the hidden copy is `inert`).
+ */
+.skill-ring {
+  stroke-dasharray: var(--value) 100;
+  transition: stroke-dasharray 1200ms ease-out;
+}
+
+[inert] .skill-ring {
+  stroke-dasharray: 0 100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-ring {
+    transition: none;
+  }
+}
+
+/*
+ * Scroll-in animations (src/hooks/reveal.ts): an element with data-reveal="<kind>" starts hidden
+ * and animates in once it gets data-shown. Screens only, and only if the user is fine with motion –
+ * otherwise everything is simply there.
+ */
+@media screen and (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    --reveal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Rise and fade in. */
+  [data-reveal='up'] {
+    transition:
+      opacity 700ms var(--reveal-ease),
+      translate 700ms var(--reveal-ease);
+  }
+  [data-reveal='up']:not([data-shown]) {
+    opacity: 0;
+    translate: 0 1.5rem;
+  }
+
+  /* Children rise in one after the other. */
+  [data-reveal='stagger'] > * {
+    transition:
+      opacity 600ms var(--reveal-ease),
+      translate 600ms var(--reveal-ease);
+  }
+  [data-reveal='stagger']:not([data-shown]) > * {
+    opacity: 0;
+    translate: 0 1rem;
+  }
+
+  /* Section title bars grow out of their middle. */
+  [data-reveal='section'] > h2 {
+    clip-path: inset(0);
+    transition:
+      clip-path 800ms var(--reveal-ease),
+      opacity 400ms ease-out;
+  }
+  [data-reveal='section']:not([data-shown]) > h2 {
+    clip-path: inset(0 50%);
+    opacity: 0;
+  }
+
+  /* Colour bands wipe in from the left. */
+  [data-reveal='band']::before {
+    clip-path: inset(0);
+    transition: clip-path 1100ms var(--reveal-ease);
+  }
+  [data-reveal='band']:not([data-shown])::before {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  /* Corner shapes slide in from outside the page, along their own direction (--from). */
+  [data-reveal='corner'] > * {
+    transition:
+      translate 1100ms var(--reveal-ease),
+      opacity 500ms ease-out;
+  }
+  [data-reveal='corner']:not([data-shown]) > * {
+    translate: var(--from);
+    opacity: 0;
+  }
+
+  /* Photo: the ring pops, the picture fades in, the bar and lines slide in along the diagonal. */
+  [data-reveal='photo'] img,
+  [data-reveal='photo'] [data-ring] {
+    transition:
+      opacity 800ms ease-out,
+      scale 900ms var(--reveal-ease);
+  }
+  [data-reveal='photo'] [data-ring] {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  [data-reveal='photo'] line {
+    transition:
+      translate 1200ms var(--reveal-ease) 250ms,
+      opacity 600ms ease-out 250ms;
+  }
+  [data-reveal='photo']:not([data-shown]) img {
+    opacity: 0;
+    scale: 0.9;
+  }
+  [data-reveal='photo']:not([data-shown]) [data-ring] {
+    scale: 0.6;
+  }
+
+  /* Fun: the flowers around the photo pop open one after the other, once the ring is there. */
+  [data-reveal='photo'] [data-bloom] {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition:
+      scale 700ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--delay, 600ms),
+      opacity 300ms ease-out var(--delay, 600ms);
+  }
+  [data-reveal='photo']:not([data-shown]) [data-bloom] {
+    scale: 0;
+    opacity: 0;
+  }
+  [data-reveal='photo']:not([data-shown]) line {
+    translate: -6px 0;
+    opacity: 0;
+  }
+
+  /* Skill rings stay empty until the list is revealed. */
+  [data-reveal]:not([data-shown]) .skill-ring {
+    stroke-dasharray: 0 100;
+  }
+
+  [data-reveal='photo'] line:nth-child(2) {
+    transition-delay: 400ms;
+  }
+  [data-reveal='photo'] line:nth-child(3) {
+    transition-delay: 500ms;
+  }
+
+  /* One after the other: children of a staggered list, shapes of a corner. */
+  [data-reveal='stagger'] > :nth-child(2),
+  [data-reveal='corner'] > :nth-child(2) {
+    transition-delay: 90ms;
+  }
+  [data-reveal='stagger'] > :nth-child(3),
+  [data-reveal='corner'] > :nth-child(3) {
+    transition-delay: 180ms;
+  }
+  [data-reveal='stagger'] > :nth-child(4) {
+    transition-delay: 270ms;
+  }
+  [data-reveal='stagger'] > :nth-child(5) {
+    transition-delay: 360ms;
+  }
+  [data-reveal='stagger'] > :nth-child(n + 6) {
+    transition-delay: 450ms;
+  }
+}
+
+.bullets {
+  --bloom-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 2 2'%3E%3Ccircle cy='-.54' r='.44'/%3E%3Ccircle cx='.51' cy='-.17' r='.44'/%3E%3Ccircle cx='.32' cy='.44' r='.44'/%3E%3Ccircle cx='-.32' cy='.44' r='.44'/%3E%3Ccircle cx='-.51' cy='-.17' r='.44'/%3E%3Ccircle r='.4'/%3E%3C/svg%3E");
+}
+
+/*
+ * Fun bullets: little flowers instead of dots, in the colour of their height on the page (page ombre)
+ * (petals as a mask, so one shape serves every colour; the white centre is a radial gradient).
+ */
+/* The flowers (not the bullets) have a faint, very thin dark contour (corners: the same as an SVG filter, BloomContour in Blooms.tsx). */
+.bloom-contour {
+  filter: drop-shadow(0 0 0.5px rgb(0 0 0 / 0.55));
+}
+
+.bullets > li {
+  @variant fun {
+    position: relative;
+    list-style: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.2em;
+      left: -1.45em;
+      width: 1.05em;
+      height: 1.05em;
+      background: radial-gradient(circle, #fff 0 0.17em, transparent 0.18em) var(--ombre-color, var(--uni-hotpink));
+      mask: var(--bloom-mask) center / contain no-repeat;
+    }
+  }
+}
+
+/*
+ * The pro version's reminder under the switch (Toolbar.tsx): a little speech bubble pointing at the switch.
+ * It fades in a moment after the page has loaded, then nods gently.
+ */
+.fun-hint {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.75rem;
+  width: max-content;
+  white-space: nowrap;
+  border-radius: 1rem;
+  background: #fff;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  color: #171717;
+  cursor: pointer;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 0 0 1px rgb(0 0 0 / 0.08);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -0.375rem;
+    right: 2.75rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    rotate: 45deg;
+    background: #fff;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation:
+      fun-hint-in 500ms ease-out 1s both,
+      fun-hint-nod 2.6s ease-in-out 1.5s infinite;
+  }
+}
+
+@keyframes fun-hint-in {
+  from {
+    opacity: 0;
+    translate: 0 -0.5rem;
+  }
+}
+
+@keyframes fun-hint-nod {
+  50% {
+    translate: 0 -0.25rem;
+  }
+}
