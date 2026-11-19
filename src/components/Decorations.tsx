@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import { reveal } from '../hooks/reveal'
-import { Bloom, BloomContour, Sticker } from './Blooms'
+import { Bloom, BloomContour, Planted, Sticker } from './Blooms'
 import type { StickerName } from './stickers'
 
 /*
@@ -8,8 +8,8 @@ import type { StickerName } from './stickers'
  * Colours come from theme tokens, so the same shapes serve both versions (fun: the colours of the original PDF).
  * Coordinates are based on the PDF (1092 × 1092 px page), but every diagonal runs at the same 31° slope
  * as the photo's bar (Photo.tsx, rotate(-31)), so all shapes on the page are parallel.
- * Fun version: the bars are sprinkled with stars, sparkles and a butterfly, with flowers at their edges, and a bouquet
- * grows in the bottom-left corner (stickers.ts).
+ * Fun version: the bars are sprinkled with stars, sparkles and a butterfly, with flowers at their edges, and little
+ * flowers grow out of the bottom of the page in the bottom-left corner (stickers.ts).
  * Entry animation (data-reveal="corner"): every shape slides in from outside the page along its own
  * direction (`--from`, in SVG units), one after the other.
  */
@@ -135,20 +135,18 @@ export function CornerBottomLeft() {
         </Bloom>
       </g>
 
-      {/* a little bouquet growing out of the very corner, with two butterflies above it */}
+      {/* little flowers growing out of the bottom of the page in the very corner, butterflies above them */}
       <g className="hidden fun:inline" filter="url(#bloom-contour-bottom-left)" style={from(-60, 60)}>
-        {BOUQUET.map(([name, x, y, s, r]) => (
-          <Bloom key={name} x={x} y={y} s={s} r={r}>
-            <Sticker name={name} />
-          </Bloom>
+        {GARDEN.map(([name, x, s, r]) => (
+          <Planted key={name} name={name} x={x} y={GROUND} s={s} r={r} />
         ))}
-        <Bloom x={150} y={58} s={15} r={18}>
-          <Sticker name="butterflyOrange" />
-        </Bloom>
-        <Bloom x={40} y={40} s={11} r={-16}>
+        <Bloom x={34} y={92} s={10} r={-16}>
           <Sticker name="butterflyBlue" flip />
         </Bloom>
-        <Bloom x={98} y={44} s={5} r={12}>
+        <Bloom x={176} y={96} s={13} r={18}>
+          <Sticker name="butterflyOrange" />
+        </Bloom>
+        <Bloom x={104} y={94} s={4.5} r={12}>
           <Sticker name="starBig" />
         </Bloom>
       </g>
@@ -156,12 +154,15 @@ export function CornerBottomLeft() {
   )
 }
 
-/** The corner bouquet: flowers on stems, fanning out from the page's bottom-left corner (name, x, y, size, turn). */
-const BOUQUET: [StickerName, number, number, number, number][] = [
-  ['orangeStem', 20, 112, 12, -26],
-  ['daisyStem', 46, 96, 13, -14],
-  ['tulipLayered', 78, 98, 14, -3],
-  ['blueStem', 110, 112, 12, 9],
-  ['tulip', 136, 128, 12, 19],
-  ['redStem', 160, 146, 11, 28],
+/** Where the corner flowers' stems end: just below the bottom of the page (the viewBox is 172 high). */
+const GROUND = 178
+
+/** The corner flowers, left to right (name, where the stem leaves the ground, size, lean) – fanning out a little. */
+const GARDEN: [StickerName, number, number, number][] = [
+  ['orangeStem', 24, 12, -14],
+  ['daisyStem', 48, 14, -8],
+  ['tulipLayered', 76, 16, -2],
+  ['blueStem', 103, 13, 5],
+  ['tulip', 127, 15, 10],
+  ['redStem', 152, 12, 16],
 ]

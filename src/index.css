@@ -68,7 +68,7 @@
 
 :root,
 [data-version='pro'] {
-  color-scheme: light;
+  color-scheme: only light; /* no forced dark mode (see index.html) */
 
   --c-page: #ffffff;
   --c-ink: #121212;
@@ -89,15 +89,15 @@
   --c-ring: #111111;
   --c-ring-track: #c8d2db;
 
-  /* page ombre (see [data-ombre]): black at the top, fading to dark grey towards the footer */
+  /* page ombre (see [data-ombre]): black at the top, fading to mid grey towards the footer (white text stays > 6:1) */
   --ombre-0: #121212;
-  --ombre-1: #1b1b1b;
-  --ombre-2: #242424;
-  --ombre-3: #2d2d2d;
-  --ombre-4: #363636;
-  --ombre-5: #3f3f3f;
-  --ombre-6: #484848;
-  --ombre-7: #484848;
+  --ombre-1: #1f1f1f;
+  --ombre-2: #2c2c2c;
+  --ombre-3: #393939;
+  --ombre-4: #464646;
+  --ombre-5: #535353;
+  --ombre-6: #606060;
+  --ombre-7: #606060;
 
   /* half the height of a section title pill (Section.tsx): the header and footer bands end / start at its midline */
   --title-half: 1.375rem;

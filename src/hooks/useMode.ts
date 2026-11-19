@@ -31,10 +31,27 @@ function revealTime(share: number) {
   return time * REVEAL_MS
 }
 
+/** The page (not the fixed switches) fades out, `change` runs, and it fades back in. */
+function fadeSwitch(change: () => void) {
+  const page = document.querySelector('main')
+  if (!page) {
+    change()
+    return
+  }
+  const FADE_OUT_MS = 120
+  const out = page.animate({ opacity: [1, 0] }, { duration: FADE_OUT_MS, easing: 'ease-in', fill: 'forwards' })
+  // A timer, not `out.finished`: the switch must happen even if the animation never gets to run.
+  window.setTimeout(() => {
+    change()
+    out.cancel()
+    page.animate({ opacity: [0, 1] }, { duration: 220, easing: 'ease-out' })
+  }, FADE_OUT_MS)
+}
+
 /**
  * Pro ↔ fun switch, wired up like a dark/light theme toggle:
  * sets `data-mode` on <html> and plays a circular reveal from the switch
- * (View Transitions API) where supported. Every visit starts in pro.
+ * (View Transitions API) where supported – on touch screens a quick fade instead. Every visit starts in pro.
  * The reader stays at the same place (see keepPlace.ts), and what is on screen is simply there in the new version –
  * no entry animations replaying under the reveal.
  */
@@ -64,6 +81,16 @@ export function useMode() {
       if (!canAnimateTransition()) {
         commit()
         setThemeColor(next)
+        return
+      }
+
+      // Phones and tablets: a quick fade instead of the circular reveal – the View Transition's full-screen snapshot
+      // gets squashed for a moment there (browser bars sliding in and out).
+      if (window.matchMedia('(pointer: coarse)').matches) {
+        fadeSwitch(() => {
+          commit()
+          setThemeColor(next)
+        })
         return
       }
 

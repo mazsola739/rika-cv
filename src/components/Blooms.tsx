@@ -57,6 +57,21 @@ export function Sticker({ name, flip }: { name: StickerName; flip?: boolean }) {
 }
 
 /**
+ * A flower on a stem, planted: the end of its stem is at (`x`, `y`) – put that just below an edge, and the flower
+ * grows out of it – and it leans `r` degrees (positive: to the right).
+ */
+export function Planted({ name, x, y, s, r = 0 }: { name: StickerName; x: number; y: number; s: number; r?: number }) {
+  const { w, h } = sticker(name)
+  const stem = (1 - HEAD) * ((2 * h) / w) * s // from the head to the end of the stem
+  const lean = (r * Math.PI) / 180
+  return (
+    <Bloom x={x + stem * Math.sin(lean)} y={y - stem * Math.cos(lean)} s={s} r={r}>
+      <Sticker name={name} />
+    </Bloom>
+  )
+}
+
+/**
  * Little flowers at both ends of a section title pill (fun version, from small tablets up – on phones the title
  * needs the room). They stay inside the pill: the title's reveal animation clips everything outside it.
  * Like every flower, they have a faint, very thin dark contour (`.bloom-contour` in index.css).
