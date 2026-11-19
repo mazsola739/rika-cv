@@ -342,6 +342,14 @@
     opacity: 0;
   }
 
+  /* Revealed by a version switch (revealOnScreen in reveal.ts): straight to the end state, no transition. */
+  [data-instant],
+  [data-instant] *,
+  [data-instant]::before,
+  [data-instant] *::before {
+    transition: none !important;
+  }
+
   /* Skill rings stay empty until the list is revealed. */
   [data-reveal]:not([data-shown]) .skill-ring {
     stroke-dasharray: 0 100;

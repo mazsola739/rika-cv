@@ -29,7 +29,8 @@ interface VersionSlotProps {
  */
 export function VersionSlot({ mode, lang, children, className = '', reveal: revealKind, stacked = true }: VersionSlotProps) {
   return (
-    <div ref={revealKind ? reveal : undefined} data-reveal={revealKind} className={`grid ${className}`}>
+    // data-slot: the reader's place is kept by these blocks on a version switch (hooks/keepPlace.ts).
+    <div ref={revealKind ? reveal : undefined} data-slot data-reveal={revealKind} className={`grid ${className}`}>
       {VERSIONS.flatMap((version) =>
         LANGS.map((copyLang) => {
           const isActive = version === mode && copyLang === lang

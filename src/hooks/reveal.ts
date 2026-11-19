@@ -30,4 +30,28 @@ export function reveal(element: Element | null) {
   return () => io.unobserve(element)
 }
 
-export type RevealKind = 'up' | 'stagger' | 'section' | 'band' | 'corner' | 'photo'
+/**
+ * After a version switch: every block on screen (or above it) that has not been revealed yet – the blocks that were
+ * hidden in the other version – is shown straight away, without its entry animation (`data-instant` turns the
+ * transitions off for a moment). The reader has just seen that place in the other version, so nothing should fly in.
+ * Blocks further down keep their scroll-in animation.
+ */
+export function revealOnScreen() {
+  const shown: Element[] = []
+  for (const element of document.querySelectorAll('[data-reveal]:not([data-shown])')) {
+    const box = element.getBoundingClientRect()
+    if (!box.height || box.top >= window.innerHeight) continue
+    element.setAttribute('data-instant', '')
+    element.setAttribute('data-shown', '')
+    observer?.unobserve(element)
+    shown.push(element)
+  }
+  if (!shown.length) return
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      for (const element of shown) element.removeAttribute('data-instant')
+    }),
+  )
+}
+
+export type RevealKind ='up' | 'stagger' | 'section' | 'band' | 'corner' | 'photo'

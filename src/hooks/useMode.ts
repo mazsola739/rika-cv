@@ -1,9 +1,14 @@
-import { useCallback, useLayoutEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { flushSync } from 'react-dom'
 import type { Mode } from '../data/types'
 import { canAnimateTransition, dropUrlParam } from './dom'
+import { rememberPlace } from './keepPlace'
+import { revealOnScreen } from './reveal'
 
 const THEME_COLOR: Record<Mode, string> = { pro: '#efefef', fun: '#f3c7cc' }
+
+/** The circular reveal of a switch. */
+const REVEAL_MS = 700
 
 export interface Point {
   x: number
@@ -15,20 +20,32 @@ function readInitialMode(): Mode {
   return document.documentElement.dataset.mode === 'fun' ? 'fun' : 'pro'
 }
 
-function applyToDocument(mode: Mode) {
-  document.documentElement.dataset.mode = mode
+/** The colour of the browser's own bar on phones. */
+function setThemeColor(mode: Mode) {
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', THEME_COLOR[mode])
+}
+
+/** Inverse of the reveal's easing (cubic ease-in-out): when the circle reaches `share` of its full size (0–1). */
+function revealTime(share: number) {
+  const time = share < 0.5 ? Math.cbrt(share / 4) : 1 - Math.cbrt(2 * (1 - share)) / 2
+  return time * REVEAL_MS
 }
 
 /**
  * Pro ↔ fun switch, wired up like a dark/light theme toggle:
  * sets `data-mode` on <html> and plays a circular reveal from the switch
  * (View Transitions API) where supported. Every visit starts in pro.
+ * The reader stays at the same place (see keepPlace.ts), and what is on screen is simply there in the new version –
+ * no entry animations replaying under the reveal.
  */
 export function useMode() {
   const [mode, setMode] = useState<Mode>(readInitialMode)
 
-  useLayoutEffect(() => applyToDocument(mode), [mode])
+  useLayoutEffect(() => {
+    document.documentElement.dataset.mode = mode
+  }, [mode])
+
+  useEffect(() => setThemeColor(readInitialMode()), [])
 
   const toggle = useCallback(
     (origin?: Point) => {
@@ -36,30 +53,42 @@ export function useMode() {
       // The choice is not remembered: once switched, a stale ?mode=pro must not bring it back on reload.
       dropUrlParam('mode')
 
+      const restorePlace = rememberPlace()
       const commit = () => {
         flushSync(() => setMode(next))
-        applyToDocument(next)
+        document.documentElement.dataset.mode = next
+        restorePlace()
+        revealOnScreen()
       }
 
       if (!canAnimateTransition()) {
         commit()
+        setThemeColor(next)
         return
       }
 
       const transition = document.startViewTransition(commit)
-      if (!origin) return
+      if (!origin) {
+        transition.finished.finally(() => setThemeColor(next))
+        return
+      }
 
       transition.ready
         .then(() => {
           const { x, y } = origin
-          const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
+          const width = window.innerWidth
+          const radius = Math.hypot(Math.max(x, width - x), Math.max(y, window.innerHeight - y))
           document.documentElement.animate(
             { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
-            { duration: 700, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', pseudoElement: '::view-transition-new(root)' },
+            { duration: REVEAL_MS, easing: 'cubic-bezier(0.65, 0, 0.35, 1)', pseudoElement: '::view-transition-new(root)' },
           )
+          // The browser's bar (phones) takes the new colour once the circle has swept over the whole top of the page.
+          const topCovered = Math.hypot(Math.max(x, width - x), y) / radius
+          window.setTimeout(() => setThemeColor(next), revealTime(Math.min(1, topCovered)))
         })
         .catch(() => {
           // transition skipped (e.g. tab hidden) – the mode is already applied
+          setThemeColor(next)
         })
     },
     [mode],
