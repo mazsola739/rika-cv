@@ -48,7 +48,7 @@ export function ContactCta({ email, cta }: { email: string; cta: Cv['contactCta'
       <a
         href={`mailto:${email}?subject=${encodeURIComponent(cta.subject)}`}
         data-ombre
-        className="inline-flex h-11 items-center gap-2.5 rounded-full bg-ink px-6 font-heading text-sm font-semibold tracking-[0.2em] text-page uppercase shadow-md transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink fun:bg-(--ombre-color) fun:text-white"
+        className="inline-flex h-11 items-center gap-2.5 rounded-full bg-(--ombre-color) px-6 font-heading text-sm font-semibold tracking-[0.2em] text-page uppercase shadow-md transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink fun:text-white"
       >
         <MailIcon className="size-5" />
         {cta.button}

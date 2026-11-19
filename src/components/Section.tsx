@@ -9,9 +9,9 @@ interface SectionProps {
 }
 
 /**
- * A titled CV block. Fun version: the title pill takes the colour of its height on the page
- * (`data-ombre`: a rainbow from crimson at the top to violet at the bottom, see usePageOmbre) and has little
- * flowers at its ends.
+ * A titled CV block. The title pill takes the colour of its height on the page (`data-ombre`, see usePageOmbre):
+ * black fading to dark grey in the pro version, a rainbow from crimson to violet in the fun one, where it also has
+ * little flowers at its ends.
  */
 export function Section({ title, children, className = '' }: SectionProps) {
   const id = useId()
@@ -22,7 +22,7 @@ export function Section({ title, children, className = '' }: SectionProps) {
       <h2
         id={id}
         data-ombre
-        className="relative mb-5 flex min-h-11 items-center justify-center rounded-full bg-ink pl-[0.32em] text-center font-heading text-[0.95rem] font-medium tracking-[0.32em] text-page uppercase fun:bg-(--ombre-color) fun:text-lg fun:font-bold fun:text-white"
+        className="relative mb-5 flex min-h-11 items-center justify-center rounded-full bg-(--ombre-color) pl-[0.32em] text-center font-heading text-[0.95rem] font-medium tracking-[0.32em] text-page uppercase fun:text-lg fun:font-bold fun:text-white"
       >
         <TitleBlooms />
         {title}
@@ -40,13 +40,13 @@ interface BulletListProps {
   animate?: boolean
 }
 
-/** Fun version: flower bullets, each in the colour of its height on the page (`data-ombre`). */
+/** Bullets in the colour of their height on the page (`data-ombre`) – little flowers in the fun version. */
 export function BulletList({ items, className = '', animate = false }: BulletListProps) {
   return (
     <ul
       ref={animate ? reveal : undefined}
       data-reveal={animate ? 'stagger' : undefined}
-      className={`bullets list-disc space-y-1 pl-5 marker:text-ink ${className}`}
+      className={`bullets list-disc space-y-1 pl-5 marker:text-(--ombre-color) ${className}`}
     >
       {items.map((item) => (
         <li key={item} data-ombre>

@@ -52,16 +52,17 @@
 }
 
 /*
- * Page rainbow of the fun version: title pills, contact icons and flower bullets take the colour of their height
- * on the page – one colour per horizontal band, from crimson at the top through orange, yellow, green, turquoise
- * and blue to violet at the bottom. usePageOmbre (src/hooks/pageOmbre.ts) picks the two neighbouring colours
+ * Page ombre: title pills, contact icons, bullets and the contact button take the colour of their height on the
+ * page – one colour per horizontal band, from the top colour stop (--ombre-0) to the bottom one (--ombre-7).
+ * Fun version: a rainbow from crimson through orange, yellow, green, turquoise and blue to violet; pro version:
+ * a gentle fade from black to dark grey. usePageOmbre (src/hooks/pageOmbre.ts) picks the two neighbouring stops
  * (--ombre-from, --ombre-to) and how far between them the element sits (--ombre-mix).
  */
 [data-ombre] {
   --ombre-color: color-mix(
     in oklch,
-    var(--ombre-from, var(--uni-crimson)),
-    var(--ombre-to, var(--uni-crimson)) var(--ombre-mix, 0%)
+    var(--ombre-from, var(--ombre-0)),
+    var(--ombre-to, var(--ombre-0)) var(--ombre-mix, 0%)
   );
 }
 
@@ -87,6 +88,16 @@
   /* skill rings */
   --c-ring: #111111;
   --c-ring-track: #c8d2db;
+
+  /* page ombre (see [data-ombre]): black at the top, fading to dark grey towards the footer */
+  --ombre-0: #121212;
+  --ombre-1: #1b1b1b;
+  --ombre-2: #242424;
+  --ombre-3: #2d2d2d;
+  --ombre-4: #363636;
+  --ombre-5: #3f3f3f;
+  --ombre-6: #484848;
+  --ombre-7: #484848;
 
   /* half the height of a section title pill (Section.tsx): the header and footer bands end / start at its midline */
   --title-half: 1.375rem;
@@ -114,6 +125,16 @@
 
   --c-ring: var(--uni-plum);
   --c-ring-track: var(--uni-lilac);
+
+  /* page ombre: the rainbow – violet twice, so the last stretch (the footer) is plain violet */
+  --ombre-0: var(--uni-crimson);
+  --ombre-1: var(--uni-tangerine);
+  --ombre-2: var(--uni-sun);
+  --ombre-3: var(--uni-emerald);
+  --ombre-4: var(--uni-aqua);
+  --ombre-5: var(--uni-sky);
+  --ombre-6: var(--uni-violet);
+  --ombre-7: var(--uni-violet);
 
   --ff-display: 'Short Stack', 'Comic Relief', 'Comic Sans MS', cursive;
   --ff-heading: 'Short Stack', 'Comic Relief', 'Comic Sans MS', cursive;

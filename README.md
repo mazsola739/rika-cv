@@ -5,7 +5,7 @@ working just like a dark/light theme toggle, in **Hungarian** and **English**.
 
 | Pro | Fun |
 | --- | --- |
-| black & white, pill-shaped section titles, Archivo Black + Montserrat | the colours of the original PDF (pink header, crimson ring, lilac footer) and a page-wide rainbow from crimson at the top to violet at the bottom, with the flowers, stars and confetti of a unicorn card; Short Stack + Kode Mono 🦄 |
+| black & white, pill-shaped section titles fading from black to dark grey down the page, Archivo Black + Montserrat | the colours of the original PDF (pink header, crimson ring, lilac footer) and a page-wide rainbow from crimson at the top to violet at the bottom, with clay-look flower, butterfly and star stickers; Short Stack + Kode Mono 🦄 |
 
 The page has a **header** (photo, name, title, introduction), a two-column body (contact, expertise, languages |
 experience, projects, education) and a **footer** (skill rings in one row, and the small print: a playful one in the
@@ -69,15 +69,16 @@ bun run lint     # oxlint
 src/
   App.tsx              layout: header band, body (2 columns on desktop, stacked on phones), footer band
   components/          Header, Photo, Sidebar, Experience, Skills, Toolbar (switches), Decorations,
-                       Blooms (flowers, stars and confetti of the fun version), Footer (small print),
+                       Blooms + stickers.ts (the fun version's flower, butterfly and star stickers), Footer (small print),
                        VersionSlot (both versions stacked), bands.ts (the colour bands)
   data/en, data/hu     CV content for both versions, per language
   i18n/                interface texts + useText()
   hooks/useMode.ts     the pro ↔ fun switch
   hooks/useLang.ts     the HU ↔ EN switch
   hooks/reveal.ts      scroll-in animations
-  hooks/pageOmbre.ts   the fun page rainbow: title pills, contact icons and bullets coloured by their height
+  hooks/pageOmbre.ts   the page ombre: title pills, contact icons and bullets coloured by their height (fun: a rainbow, pro: black to grey)
   index.css            Tailwind import, theme tokens, `fun:` variant, animations
+  assets/stickers/     the stickers, cut out of one sticker sheet (transparent WebP)
 archive/RikaCV-canva-masked.pdf   the old, outdated print version (not deployed)
 ```
 

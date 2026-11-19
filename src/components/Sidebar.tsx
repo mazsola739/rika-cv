@@ -33,8 +33,8 @@ export function ContactSection({ contact }: { contact: Contact }) {
       <ul ref={reveal} data-reveal="stagger" className="space-y-3">
         {contactRows(contact, t).map(({ icon: Icon, label, text, note, href }) => (
           <li key={label} className="flex items-center gap-4">
-            {/* Fun version: the colour of its height on the page (page ombre). */}
-            <span data-ombre className="grid size-10 shrink-0 place-items-center rounded-full bg-ink text-page fun:bg-(--ombre-color) fun:text-white">
+            {/* The colour of its height on the page (page ombre). */}
+            <span data-ombre className="grid size-10 shrink-0 place-items-center rounded-full bg-(--ombre-color) text-page fun:text-white">
               <Icon className="size-5" />
               <span className="sr-only">{label}</span>
             </span>
