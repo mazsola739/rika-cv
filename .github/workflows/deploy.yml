@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
-# Lint and build every push and pull request; pushes to main (and manual runs) are also published to
-# https://mazsola739.github.io/rika-cv/.
+# Lint and build every push and pull request, and print the downloadable PDFs (scripts/pdf.mjs); pushes to main
+# (and manual runs) are also published to https://mazsola739.github.io/rika-cv/.
 
 on:
   push:
@@ -27,6 +27,8 @@ jobs:
       - run: bun install --frozen-lockfile
       - run: bun run lint
       - run: bun run build
+      - run: bunx playwright install --with-deps chromium
+      - run: bun run pdf
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
         with:

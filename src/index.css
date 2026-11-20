@@ -75,18 +75,19 @@
   --c-band-top: #efefef;
   --c-band-bottom: #efefef;
 
-  /* decorative shapes: the big ones black, the small bars and thin lines in shades of grey */
+  /* decorative shapes: the big ones black, the small bars and thin lines in shades of grey; the bottom-left ones a little
+     lighter, in step with the page ombre fading to grey towards the footer */
   --c-shape: #151515;
   --c-shape-soft: #5c5c5c;
   --c-line: #7d7d7d;
   --c-line-photo-top: #3a3a3a;
   --c-line-photo-bottom: #a3a3a3;
-  --c-shape-bl: #151515;
-  --c-shape-bl-soft: #a3a3a3;
-  --c-line-bl: #5c5c5c;
+  --c-shape-bl: #4d4d4d;
+  --c-shape-bl-soft: #b0b0b0;
+  --c-line-bl: #6e6e6e;
 
-  /* skill rings */
-  --c-ring: #111111;
+  /* skill rings (in the footer: the grey of the bottom of the page ombre, a shade darker than its pills) */
+  --c-ring: #4d4d4d;
   --c-ring-track: #c8d2db;
 
   /* page ombre (see [data-ombre]): black at the top, fading to mid grey towards the footer (white text stays > 6:1) */
@@ -464,5 +465,46 @@
 @keyframes fun-hint-nod {
   50% {
     translate: 0 -0.25rem;
+  }
+}
+
+/*
+ * Print and the downloadable PDFs (scripts/pdf.mjs): A4, the first page bleeding to its top edge (header band, corner
+ * shapes), the following ones with a little room at the top; every block kept whole; colours as on screen.
+ * The PDF script sets data-pdf on <html> with --pdf-height (the whole pages' height): the footer then sits at the
+ * bottom of the last page, with the bottom-left shapes.
+ */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 0 0;
+  }
+  @page :first {
+    margin-top: 0;
+  }
+
+  html {
+    print-color-adjust: exact;
+  }
+
+  section > h2 {
+    break-after: avoid;
+  }
+  article,
+  figure,
+  li,
+  .cv-footer {
+    break-inside: avoid;
+  }
+
+  [data-pdf] .cv-page {
+    min-height: var(--pdf-height);
+  }
+  [data-pdf] .cv-footer {
+    position: absolute;
+    right: var(--px);
+    bottom: var(--pb);
+    left: var(--px);
+    margin: 0;
   }
 }

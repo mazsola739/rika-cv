@@ -26,7 +26,16 @@ bun dev          # dev server on http://localhost:2739
 bun run build    # type-check + production build into dist/
 bun run preview  # serve the production build
 bun run lint     # oxlint
+bun run pdf      # after a build: print the four PDFs into dist/cv/ (headless Chrome via Playwright)
 ```
+
+## The PDFs
+
+The PDF button in the toolbar downloads the version and language on screen as a PDF (`Erika-Rostas-CV-<mode>-<lang>.pdf`).
+The four PDFs are made at deploy time by `scripts/pdf.mjs`: headless Chromium (Playwright) prints the built site onto
+A4 pages – the desktop layout, 1180 px wide, scaled to the paper's width, with vector text and without the switches.
+The print rules in `src/index.css` keep blocks whole, give the pages after the first a little room at the top, and put
+the footer at the bottom of the last page. Locally the script uses the installed Chrome or Edge.
 
 ## How the switch works
 

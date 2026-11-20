@@ -55,7 +55,7 @@ export const ui = {
     },
 
     pdf: 'PDF',
-    pdfTitle: 'Download the original PDF (both CVs)',
+    pdfTitle: 'Download this CV as a PDF',
     modeSwitch: 'Fun version of the CV',
     toPro: 'Switch to the professional CV',
     toFun: 'Switch to the fun CV',
@@ -93,7 +93,7 @@ export const ui = {
     },
 
     pdf: 'PDF',
-    pdfTitle: 'Az eredeti PDF letöltése (angol nyelvű, mindkét változat)',
+    pdfTitle: 'Ez az önéletrajz PDF-ben',
     modeSwitch: 'Az önéletrajz vicces változata',
     toPro: 'Váltás a szakmai önéletrajzra',
     toFun: 'Váltás a vicces önéletrajzra',

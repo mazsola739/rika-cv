@@ -10,12 +10,17 @@ import { SkillsSection } from './components/Skills'
 import { Toolbar } from './components/Toolbar'
 import { VersionSlot } from './components/VersionSlot'
 import { cvs } from './data'
+import { SITE_URL } from './data/shared'
+import type { Lang } from './data/types'
 import { usePageOmbre } from './hooks/pageOmbre'
 import { reveal } from './hooks/reveal'
 import { useLang } from './hooks/useLang'
 import { useMode } from './hooks/useMode'
 import { LangContext } from './i18n/context'
 import { ui } from './i18n/ui'
+
+/** The fun version of the live site, in a language (the pro footer's reminder links there – in the PDF too). */
+const funUrl = (lang: Lang) => `${SITE_URL}?mode=fun${lang === 'hu' ? '&lang=hu' : ''}`
 
 export default function App() {
   const { mode, toggle: toggleMode } = useMode()
@@ -96,7 +101,7 @@ export default function App() {
           <footer
             ref={reveal}
             data-reveal="band"
-            className={`order-5 lg:col-span-2 lg:mt-16 lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-x-(--gx) ${footerBand}`}
+            className={`cv-footer order-5 lg:col-span-2 lg:mt-16 lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-x-(--gx) ${footerBand}`}
           >
             <VersionSlot mode={mode} lang={lang} className="lg:col-start-2 lg:row-start-1">
               {(version, l) => <SkillsSection skills={cvs[version][l].skills} />}
@@ -108,7 +113,7 @@ export default function App() {
               {(version, l) => (
                 <Copyright
                   text={cvs[version][l].copyright}
-                  hint={version === 'pro' ? { label: ui[l].funHint, onClick: toggleMode } : undefined}
+                  hint={version === 'pro' ? { label: ui[l].funHint, href: funUrl(l), onClick: toggleMode } : undefined}
                 />
               )}
             </VersionSlot>

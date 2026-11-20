@@ -12,10 +12,11 @@ interface ToolbarProps {
   onToggleLang: () => void
 }
 
-const pdfUrl = `${import.meta.env.BASE_URL}RikaCV.pdf`
-
-/** The PDF download is switched off until the PDF is regenerated from the page (the current one is outdated). */
-const SHOW_PDF = false
+/**
+ * The PDF of the version and language on screen, made from the page at deploy time (scripts/pdf.mjs, A4, no switches).
+ * Not there in `bun dev` – run `bun run build && bun run pdf`, then `bun run preview`.
+ */
+const pdfName = (mode: Mode, lang: Lang) => `Erika-Rostas-CV-${mode}-${lang}.pdf`
 
 const pill =
   'flex h-11 cursor-pointer items-center rounded-full bg-white/90 text-xs font-semibold tracking-wider uppercase shadow-lg ring-1 ring-black/10 backdrop-blur transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 fun:focus-visible:outline-uni-hotpink'
@@ -47,12 +48,18 @@ export function Toolbar({ mode, lang, onToggleMode, onToggleLang }: ToolbarProps
     // Its own font (not the version's), so the buttons keep their size and place when switching pro ↔ fun.
     // On wide screens it stays at the CV page's right edge (the page is at most 1180px wide), not the window's.
     <div className="fixed top-4 right-[max(1rem,calc((100%-1180px)/2+1rem))] z-50 flex items-center gap-2 font-['Montserrat_Variable',sans-serif] print:hidden sm:top-5 sm:right-[max(1.25rem,calc((100%-1180px)/2+1.25rem))]">
-      {SHOW_PDF && (
-        <a href={pdfUrl} download="RikaCV.pdf" title={t.pdfTitle} className={`${pill} gap-1.5 px-3.5 text-neutral-900`}>
-          <DownloadIcon className="size-4" />
-          <span className="sr-only sm:not-sr-only">{t.pdf}</span>
-        </a>
-      )}
+      <a
+        href={`${import.meta.env.BASE_URL}cv/${pdfName(mode, lang)}`}
+        download={pdfName(mode, lang)}
+        title={t.pdfTitle}
+        aria-label={t.pdfTitle}
+        className={`${pill} gap-1.5 px-3.5 text-neutral-900`}
+      >
+        <DownloadIcon className="size-4" />
+        <span aria-hidden className="hidden sm:inline">
+          {t.pdf}
+        </span>
+      </a>
 
       {/* Labelled in the language it switches to, so people who don't read the current one can find it. */}
       <button

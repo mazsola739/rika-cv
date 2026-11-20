@@ -7,8 +7,11 @@ const year = new Date().getFullYear()
 
 interface CopyrightProps {
   text: string
-  /** Pro version: a link-like reminder after the small print that switches to the fun version. */
-  hint?: { label: string; onClick: (origin: Point) => void }
+  /**
+   * Pro version: a reminder after the small print that switches to the fun version. A real link to the fun version
+   * of the live site (`href`), so it works in the PDF too; on the page it switches in place.
+   */
+  hint?: { label: string; href: string; onClick: (origin: Point) => void }
 }
 
 /** The small print at the very bottom of the page: serious in the pro version, playful in the fun one. */
@@ -21,16 +24,17 @@ export function Copyright({ text, hint }: CopyrightProps) {
       {hint && (
         <>
           {' · '}
-          <button
-            type="button"
+          <a
+            href={hint.href}
             onClick={(event) => {
+              event.preventDefault()
               const rect = event.currentTarget.getBoundingClientRect()
               hint.onClick({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 })
             }}
             className="cursor-pointer font-semibold underline-offset-4 hover:underline"
           >
             {hint.label}
-          </button>
+          </a>
         </>
       )}
     </p>
