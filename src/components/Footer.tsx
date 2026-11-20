@@ -43,16 +43,17 @@ export function Copyright({ text, hint }: CopyrightProps) {
 
 /**
  * "Contact me" in the footer: a pill button that opens the visitor's mail app with an e-mail to Erika (subject
- * filled in), and a short line under it. The button is as high as a title pill, so it sits on the footer band's
- * edge just like the skills title next to it. Fun version: the colour of its height on the page (page rainbow).
+ * filled in), and a short line under it. The button is as high and as wide as a title pill, so it looks like the
+ * other titles and sits on the footer band's edge just like the skills title next to it. Fun version: the colour of
+ * its height on the page (page rainbow).
  */
 export function ContactCta({ email, cta }: { email: string; cta: Cv['contactCta'] }) {
   return (
-    <div className="flex flex-col items-start gap-3">
+    <div className="flex flex-col gap-3">
       <a
         href={`mailto:${email}?subject=${encodeURIComponent(cta.subject)}`}
         data-ombre
-        className="inline-flex h-11 items-center gap-2.5 rounded-full bg-(--ombre-color) px-6 font-heading text-sm font-semibold tracking-[0.2em] text-page uppercase shadow-md transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink fun:text-white"
+        className="flex h-11 items-center justify-center gap-2.5 rounded-full bg-(--ombre-color) px-6 font-heading text-sm font-semibold tracking-[0.2em] text-page uppercase shadow-md transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink fun:text-white"
       >
         <MailIcon className="size-5" />
         {cta.button}
