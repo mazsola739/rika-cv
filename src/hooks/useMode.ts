@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { flushSync } from 'react-dom'
 import type { Mode } from '../data/types'
-import { canAnimateTransition, dropUrlParam } from './dom'
+import { canAnimateTransition, dropUrlParam, rememberSetting } from './dom'
 import { rememberPlace } from './keepPlace'
-import { revealOnScreen } from './reveal'
+import { replayDesign, revealOnScreen } from './reveal'
 
 const THEME_COLOR: Record<Mode, string> = { pro: '#efefef', fun: '#f3c7cc' }
 
@@ -15,7 +15,7 @@ export interface Point {
   y: number
 }
 
-/** The inline script in index.html has already resolved the mode (pro, unless the URL says ?mode=fun). */
+/** The inline script in index.html has already resolved the mode (pro, unless the URL or this tab says fun). */
 function readInitialMode(): Mode {
   return document.documentElement.dataset.mode === 'fun' ? 'fun' : 'pro'
 }
@@ -51,15 +51,17 @@ function fadeSwitch(change: () => void) {
 /**
  * Pro ↔ fun switch, wired up like a dark/light theme toggle:
  * sets `data-mode` on <html> and plays a circular reveal from the switch
- * (View Transitions API) where supported – on touch screens a quick fade instead. Every visit starts in pro.
- * The reader stays at the same place (see keepPlace.ts), and what is on screen is simply there in the new version –
- * no entry animations replaying under the reveal.
+ * (View Transitions API) where supported – on touch screens a quick fade instead. A visit starts in pro; a reload
+ * keeps the version (rememberSetting, this tab only).
+ * The reader stays at the same place (see keepPlace.ts); the texts on screen are simply there in the new version,
+ * while the decorative blocks come in again as on a first visit (replayDesign).
  */
 export function useMode() {
   const [mode, setMode] = useState<Mode>(readInitialMode)
 
   useLayoutEffect(() => {
     document.documentElement.dataset.mode = mode
+    rememberSetting('mode', mode)
   }, [mode])
 
   useEffect(() => setThemeColor(readInitialMode()), [])
@@ -67,7 +69,7 @@ export function useMode() {
   const toggle = useCallback(
     (origin?: Point) => {
       const next: Mode = mode === 'pro' ? 'fun' : 'pro'
-      // The choice is not remembered: once switched, a stale ?mode=pro must not bring it back on reload.
+      // Remembered for this tab instead (see above): a stale ?mode= must not bring the old one back on reload.
       dropUrlParam('mode')
 
       const restorePlace = rememberPlace()
@@ -76,6 +78,7 @@ export function useMode() {
         document.documentElement.dataset.mode = next
         restorePlace()
         revealOnScreen()
+        replayDesign()
       }
 
       if (!canAnimateTransition()) {

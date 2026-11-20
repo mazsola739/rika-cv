@@ -11,12 +11,18 @@
     <title>Erika Rostás – Full-stack Developer</title>
     <script>
       // Pick the version before first paint so there is no flash of the wrong one.
-      // Mode: always pro, unless the link says ?mode=fun.
-      // Language: always English, unless the link says ?lang=hu.
+      // A visit starts in pro, in English. The link can ask for another one (?mode=fun, ?lang=hu), and a reload keeps
+      // what was chosen in this tab (sessionStorage "rika-cv", written by rememberSetting in src/hooks/dom.ts).
       ;(function () {
         var params = new URLSearchParams(window.location.search)
-        document.documentElement.lang = params.get('lang') === 'hu' ? 'hu' : 'en'
-        if (params.get('mode') === 'fun') document.documentElement.dataset.mode = 'fun'
+        var saved = {}
+        try {
+          saved = JSON.parse(sessionStorage.getItem('rika-cv') || '{}') || {}
+        } catch (error) {}
+        var lang = params.get('lang') || saved.lang
+        var mode = params.get('mode') || saved.mode
+        document.documentElement.lang = lang === 'hu' ? 'hu' : 'en'
+        if (mode === 'fun') document.documentElement.dataset.mode = 'fun'
       })()
     </script>
   </head>

@@ -57,6 +57,20 @@ export function Sticker({ name, flip }: { name: StickerName; flip?: boolean }) {
 }
 
 /**
+ * A butterfly sticker that can fly off now and then (useButterflies): the outer group carries the flight, the inner one
+ * the flapping wings.
+ */
+export function Butterfly({ name, flip }: { name: StickerName; flip?: boolean }) {
+  return (
+    <g data-butterfly>
+      <g>
+        <Sticker name={name} flip={flip} />
+      </g>
+    </g>
+  )
+}
+
+/**
  * A flower on a stem, planted: the end of its stem is at (`x`, `y`) – put that just below an edge, and the flower
  * grows out of it – and it leans `r` degrees (positive: to the right).
  */

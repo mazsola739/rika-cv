@@ -39,13 +39,15 @@ the footer at the bottom of the last page. Locally the script uses the installed
 
 ## How the switch works
 
-- `<html data-mode="pro|fun">` holds the current version. Every visit starts in **pro**; only a direct
-  `?mode=fun` link opens the fun one (in the pro version a little bubble under the switch, and a link in the
-  footer, remind visitors that there is a fun version too) (the inline script in `index.html` sets it before the first paint, so there is no flash).
+- `<html data-mode="pro|fun">` holds the current version. Every visit starts in **pro**; a `?mode=fun` link opens
+  the fun one, and a reload keeps the version chosen in that browser tab (sessionStorage – a new visit or a shared link
+  starts in pro again). In the pro version a little bubble under the switch, and a link in the footer, remind visitors
+  that there is a fun version too. The inline script in `index.html` sets it before the first paint, so there is no flash.
 - `src/index.css` defines `@custom-variant fun (...)` – base classes are the pro look, `fun:` overrides them,
   exactly like `dark:`. Colours and fonts are CSS variables that swap per mode (`bg-band-top`, `font-heading`, …).
-- `src/hooks/useMode.ts` toggles the mode (not remembered – a reload goes back to pro)
-  and plays a circular reveal from the switch using the View Transitions API (skipped with reduced motion).
+- `src/hooks/useMode.ts` toggles the mode and plays a circular reveal from the switch using the View Transitions API
+  (touch screens: a quick fade; nothing with reduced motion). The reader stays at the same place (`keepPlace.ts`),
+  and the decorative blocks come in again as on a first visit (`replayDesign` in `reveal.ts`).
 - Every CV block is a `VersionSlot`: all versions *and both languages* are rendered on top of each other (the hidden one is
   `invisible` + `inert`, marked `data-version`, which the `fun:` variant respects). The slot is as tall as the
   taller version, so the bands, title bars and corner shapes are in exactly the same place in both versions and
@@ -59,14 +61,17 @@ the footer at the bottom of the last page. Locally the script uses the installed
   corner shapes slide in from outside the page, the photo ring pops and its bar slides in along the diagonal,
   the colour bands wipe in, section bars grow from the middle, lists rise in one by one, skill rings fill up.
 - Skill rings fill again whenever their version becomes the visible one.
+- Fun version: the butterflies flutter away when the mouse comes close, and now and then while scrolling, then settle
+  back (`src/hooks/butterflies.ts`; each one rests a while after a flight).
 - Nothing moves with `prefers-reduced-motion: reduce`, and nothing is hidden in print.
 - The CV texts live in `src/data/<lang>/pro.ts` and `fun.ts` (same `Cv` type), per-language contact and job
   details in `src/data/<lang>/common.ts`, language-independent bits in `src/data/shared.ts`.
 
 ## How the language switch works
 
-- The page always starts in **English**; only a `?lang=hu` link opens the Hungarian one (combinable with `?mode=pro`).
-- `src/hooks/useLang.ts` switches it (not remembered – a reload goes back to English),
+- A visit starts in **English**; a `?lang=hu` link opens the Hungarian one (combinable with `?mode=fun`), and a reload
+  keeps the language chosen in that tab.
+- `src/hooks/useLang.ts` switches it,
   sets `<html lang>` for hyphenation and screen readers, and cross-fades the page.
 - Interface texts (section titles, labels, tooltips, page title) are in `src/i18n/ui.ts`;
   components read them with `useText()`.

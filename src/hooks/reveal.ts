@@ -54,4 +54,32 @@ export function revealOnScreen() {
   )
 }
 
-export type RevealKind ='up' | 'stagger' | 'section' | 'band' | 'corner' | 'photo'
+/** The decorative blocks: corner shapes, the photo with its ring and flowers, colour bands, section title pills. */
+const DESIGN = "[data-reveal='corner'], [data-reveal='photo'], [data-reveal='band'], [data-reveal='section']"
+
+/**
+ * After a version switch: the decorative blocks come in again, as on a first visit – the ones on screen right away,
+ * the others when they scroll into view. Texts stay put. Each one is put back to its hidden start state without a
+ * transition (`data-instant`), then shown a frame later, so its entry animation plays.
+ */
+export function replayDesign() {
+  const io = getObserver()
+  const elements = [...document.querySelectorAll(DESIGN)].filter((element) => !element.closest('[inert]'))
+  const onScreen: Element[] = []
+  for (const element of elements) {
+    const box = element.getBoundingClientRect()
+    element.setAttribute('data-instant', '')
+    element.removeAttribute('data-shown')
+    if (box.height && box.bottom > 0 && box.top < window.innerHeight) onScreen.push(element)
+    else io.observe(element)
+  }
+  void document.documentElement.offsetHeight // apply the start state now, without transitions
+  for (const element of elements) element.removeAttribute('data-instant')
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      for (const element of onScreen) element.setAttribute('data-shown', '')
+    }),
+  )
+}
+
+export type RevealKind = 'up' | 'stagger' | 'section' | 'band' | 'corner' | 'photo'

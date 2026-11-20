@@ -1,22 +1,23 @@
 import { useCallback, useLayoutEffect, useState } from 'react'
 import { flushSync } from 'react-dom'
 import type { Lang } from '../data/types'
-import { canAnimateTransition, dropUrlParam } from './dom'
+import { canAnimateTransition, dropUrlParam, rememberSetting } from './dom'
 
-/** The inline script in index.html has already resolved the language (English, unless the URL says ?lang=hu). */
+/** The inline script in index.html has already resolved the language (English, unless the URL or this tab says hu). */
 function readInitialLang(): Lang {
   return document.documentElement.lang === 'hu' ? 'hu' : 'en'
 }
 
 /**
  * Hungarian ↔ English switch. Sets `lang` on <html> (hyphenation, screen readers)
- * and cross-fades the page. Not remembered: a reload goes back to English.
+ * and cross-fades the page. A visit starts in English; a reload keeps the language (rememberSetting, this tab only).
  */
 export function useLang() {
   const [lang, setLang] = useState<Lang>(readInitialLang)
 
   useLayoutEffect(() => {
     document.documentElement.lang = lang
+    rememberSetting('lang', lang)
   }, [lang])
 
   const toggle = useCallback(() => {

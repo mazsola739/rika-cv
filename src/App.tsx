@@ -12,6 +12,7 @@ import { VersionSlot } from './components/VersionSlot'
 import { cvs } from './data'
 import { SITE_URL } from './data/shared'
 import type { Lang } from './data/types'
+import { useButterflies } from './hooks/butterflies'
 import { usePageOmbre } from './hooks/pageOmbre'
 import { reveal } from './hooks/reveal'
 import { useLang } from './hooks/useLang'
@@ -28,6 +29,7 @@ export default function App() {
   const t = ui[lang]
   const page = useRef<HTMLElement>(null)
   usePageOmbre(page, `${mode}-${lang}`)
+  useButterflies(mode === 'fun')
 
   useEffect(() => {
     document.title = t.documentTitle[mode]

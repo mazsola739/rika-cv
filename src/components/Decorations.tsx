@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
 import { reveal } from '../hooks/reveal'
-import { Bloom, BloomContour, Planted, Sticker } from './Blooms'
+import { Bloom, BloomContour, Butterfly, Planted, Sticker } from './Blooms'
 import type { StickerName } from './stickers'
 
 /*
@@ -65,7 +65,7 @@ export function CornerTopRight() {
           <Sticker name="red" />
         </Bloom>
         <Bloom x={258} y={52} s={12} r={-14}>
-          <Sticker name="butterflyPurple" />
+          <Butterfly name="butterflyPurple" />
         </Bloom>
         <Bloom x={289} y={19} s={6} r={15}>
           <Sticker name="starPink" />
@@ -141,10 +141,10 @@ export function CornerBottomLeft() {
           <Planted key={name} name={name} x={x} y={GROUND} s={s} r={r} />
         ))}
         <Bloom x={34} y={92} s={10} r={-16}>
-          <Sticker name="butterflyBlue" flip />
+          <Butterfly name="butterflyBlue" flip />
         </Bloom>
         <Bloom x={176} y={96} s={13} r={18}>
-          <Sticker name="butterflyOrange" />
+          <Butterfly name="butterflyOrange" />
         </Bloom>
         <Bloom x={104} y={94} s={4.5} r={12}>
           <Sticker name="starBig" />

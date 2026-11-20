@@ -1,5 +1,5 @@
 import { reveal } from '../hooks/reveal'
-import { Bloom, Sticker } from './Blooms'
+import { Bloom, Butterfly, Sticker } from './Blooms'
 
 interface PhotoProps {
   src: string
@@ -40,7 +40,7 @@ export function Photo({ src, alt }: PhotoProps) {
         <g transform="rotate(-31)">
           {/* hair clip, top right of the photo: a butterfly with flowers */}
           <Bloom x={0.66} y={-0.92} s={0.24} r={46} delay="650ms">
-            <Sticker name="butterflyPink" />
+            <Butterfly name="butterflyPink" />
           </Bloom>
           <Bloom x={0.98} y={-0.52} s={0.19} delay="750ms">
             <Sticker name="daisy" />
@@ -96,7 +96,7 @@ export function Photo({ src, alt }: PhotoProps) {
               <Sticker name="pink" />
             </Bloom>
             <Bloom x={-3.3} y={0.45} s={0.2} r={-12} delay="1350ms">
-              <Sticker name="butterflyYellow" />
+              <Butterfly name="butterflyYellow" />
             </Bloom>
             <Bloom x={-3.45} y={-0.94} s={0.17} delay="1400ms">
               <Sticker name="daisy" />
