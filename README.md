@@ -103,3 +103,7 @@ The site lives at **https://mazsola739.github.io/rika-cv/**.
 `.github/workflows/deploy.yml` lints and builds every push and pull request; every push to `main` (and a manual run
 from the Actions tab) is also published to GitHub Pages. The Vite `base` is relative (`./`), so the build works under
 any sub-path (here `/rika-cv/`).
+
+## License
+
+The code is under the [MIT License](LICENSE). The content of the CV (texts and photo) is mine and not covered by it: all rights reserved.
