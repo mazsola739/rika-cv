@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { footerBand, topBand } from './components/bands'
+import { ContactDialog } from './components/ContactDialog'
 import { CornerBottomLeft, CornerTopRight } from './components/Decorations'
 import { EducationSection, ExperienceSection, ProjectsSection } from './components/Experience'
 import { ContactCta, Copyright } from './components/Footer'
@@ -28,12 +29,19 @@ export default function App() {
   const { lang, toggle: toggleLang } = useLang()
   const t = ui[lang]
   const page = useRef<HTMLElement>(null)
+  const contact = useRef<HTMLDialogElement>(null)
   usePageOmbre(page, `${mode}-${lang}`)
   useButterflies(mode === 'fun')
 
   useEffect(() => {
     document.title = t.documentTitle[mode]
   }, [t, mode])
+
+  /** "Contact me": the contact window, with the cursor in its Name field. */
+  const openContact = () => {
+    contact.current?.showModal()
+    contact.current?.querySelector('input')?.focus()
+  }
 
   return (
     <LangContext value={lang}>
@@ -109,7 +117,9 @@ export default function App() {
               {(version, l) => <SkillsSection skills={cvs[version][l].skills} />}
             </VersionSlot>
             <VersionSlot mode={mode} lang={lang} className="mt-8 lg:col-start-1 lg:row-start-1 lg:mt-0">
-              {(version, l) => <ContactCta email={cvs[version][l].contact.email} cta={cvs[version][l].contactCta} />}
+              {(version, l) => (
+                <ContactCta email={cvs[version][l].contact.email} cta={cvs[version][l].contactCta} onOpen={openContact} />
+              )}
             </VersionSlot>
             <VersionSlot mode={mode} lang={lang} className="mt-6 lg:col-start-2">
               {(version, l) => (
@@ -121,6 +131,7 @@ export default function App() {
             </VersionSlot>
           </footer>
         </main>
+        <ContactDialog ref={contact} lang={lang} cta={cvs[mode][lang].contactCta} />
       </div>
     </LangContext>
   )

@@ -10,6 +10,12 @@ export const photos: Record<Mode, string> = { pro: photoPro, fun: photoFun }
 export const SITE_URL = 'https://mazsola739.github.io/rika-cv/'
 
 /**
+ * The access key of the contact form from Web3Forms (https://web3forms.com), which e-mails the messages to Erika
+ * (the same key as on the portfolio). It is meant to be public: it can only send to her address.
+ */
+export const CONTACT_FORM_KEY = '8674bf2a-c248-426a-aed4-379fa983cb34'
+
+/**
  * The four cats of the fun version's code review board: src/assets/cats.(jpg|jpeg|png|webp), if it is there.
  * A glob instead of an import, so the page also builds (and shows the caption alone) while the photo is missing.
  */

@@ -43,6 +43,19 @@ export interface UiText extends SectionTitles {
   projects: string
   education: string
   skills: string
+
+  /** The contact window ("Contact me" opens it on the page; in the PDF the button stays an e-mail link). */
+  form: {
+    name: string
+    email: string
+    message: string
+    send: string
+    sending: string
+    sent: string
+    error: string
+    privacy: string
+    close: string
+  }
 }
 
 export const ui = {
@@ -74,6 +87,17 @@ export const ui = {
     projects: 'Projects',
     education: 'Education',
     skills: 'Skills Summary',
+    form: {
+      name: 'Name',
+      email: 'E-mail',
+      message: 'Message',
+      send: 'Send message',
+      sending: 'Sending…',
+      sent: "Thank you! Your message is on its way, I'll write back soon.",
+      error: "Sorry, the message couldn't be sent. Please try again a bit later.",
+      privacy: 'Your message reaches my inbox through Web3Forms. I only use your name and e-mail address to write back to you.',
+      close: 'Close',
+    },
     funSections: {
       contact: 'Ping me',
       expertise: 'Superpowers',
@@ -112,6 +136,17 @@ export const ui = {
     projects: 'Projektek',
     education: 'Tanulmányok',
     skills: 'Készségek',
+    form: {
+      name: 'Név',
+      email: 'E-mail',
+      message: 'Üzenet',
+      send: 'Üzenet küldése',
+      sending: 'Küldés…',
+      sent: 'Köszönöm! Az üzeneted úton van, hamarosan válaszolok.',
+      error: 'Sajnos nem sikerült elküldeni az üzenetet. Kérlek, próbáld újra egy kicsit később.',
+      privacy: 'Az üzeneted a Web3Forms-on keresztül érkezik a postafiókomba. A nevedet és az e-mail-címedet csak arra használom, hogy válaszoljak.',
+      close: 'Bezárás',
+    },
     funSections: {
       contact: 'Pingelj!',
       expertise: 'Szupererők',
