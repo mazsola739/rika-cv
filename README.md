@@ -107,3 +107,4 @@ any sub-path (here `/rika-cv/`).
 ## License
 
 The code is under the [MIT License](LICENSE). The content of the CV (texts and photo) is mine and not covered by it: all rights reserved.
+The stickers (the flowers and the butterflies, `src/assets/stickers/`) were made with AI and are not covered by it either.
