@@ -9,8 +9,8 @@ function JobEntry({ job }: { job: Job }) {
     <article ref={reveal} data-reveal="up" className="space-y-2">
       {/*
         Two rows: name | place, period | role – so a long role never squeezes the name onto two lines.
-        Fun version: a size smaller on narrow desktops, where its wide, uppercase letters would not fit; the playful place and
-        period in smaller letters, so the name and the role stand out.
+        Fun version: a size smaller on narrow desktops, where its wide, uppercase letters would not fit; the playful place,
+        period and role in smaller letters, so the name stands out.
       */}
       <header className="font-heading text-[0.95rem] leading-snug font-medium fun:text-lg fun:leading-tight fun:font-bold fun:uppercase fun:lg:text-base fun:xl:text-lg">
         <div className="flex flex-wrap justify-between gap-x-4 fun:items-baseline">
@@ -19,7 +19,7 @@ function JobEntry({ job }: { job: Job }) {
         </div>
         <div className="flex flex-wrap justify-between gap-x-4 fun:items-baseline">
           <p className="fun:text-sm fun:lg:text-xs fun:xl:text-sm">{job.period}</p>
-          <p className="ml-auto text-right">{job.role}</p>
+          <p className="ml-auto text-right fun:text-sm fun:lg:text-xs fun:xl:text-sm">{job.role}</p>
         </div>
       </header>
 
