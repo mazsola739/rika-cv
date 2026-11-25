@@ -78,15 +78,6 @@ export default function App() {
               <VersionSlot mode={mode} lang={lang}>
                 {(version, l) => <ListSection titleKey="languages" items={cvs[version][l].languages} />}
               </VersionSlot>
-              {/* Fun only, at the bottom of the left column: nothing else moves, so pro and fun still line up. */}
-              {cvs[mode][lang].helpers && (
-                <VersionSlot mode={mode} lang={lang} stacked={false}>
-                  {(version, l) => {
-                    const helpers = cvs[version][l].helpers
-                    return helpers && <HelpersSection helpers={helpers} />
-                  }}
-                </VersionSlot>
-              )}
             </div>
           </div>
 
@@ -96,35 +87,34 @@ export default function App() {
             </VersionSlot>
             {/* lg:mt-14 (3.5rem): the header band ends at the work experience title's midline (bands.ts) */}
             {/*
-              Pro: the own projects first (the board game is the main portfolio piece), then the development work, then
-              the other jobs in a section of their own. Fun: all the jobs, then the projects. Each section only shows in
-              the version it belongs to.
+              Both versions in the same order: the own projects first (the board game is the main portfolio piece), then
+              the development work, then the other jobs in a section of their own, then education. Fun only, at the end:
+              the cats of the code review board.
             */}
             <div className="order-4 flex flex-col gap-8 lg:order-none lg:mt-14">
-              {mode === 'pro' && (
-                <VersionSlot mode={mode} lang={lang} stacked={false}>
-                  {(version, l) => version === 'pro' && <ProjectsSection projects={cvs[version][l].projects} />}
-                </VersionSlot>
-              )}
+              <VersionSlot mode={mode} lang={lang} stacked={false}>
+                {(version, l) => <ProjectsSection projects={cvs[version][l].projects} />}
+              </VersionSlot>
               <VersionSlot mode={mode} lang={lang} stacked={false}>
                 {(version, l) => <ExperienceSection jobs={cvs[version][l].experience} />}
               </VersionSlot>
-              {mode === 'pro' && (
-                <VersionSlot mode={mode} lang={lang} stacked={false}>
-                  {(version, l) => {
-                    const other = cvs[version][l].otherExperience
-                    return version === 'pro' && other && <ExperienceSection jobs={other} other />
-                  }}
-                </VersionSlot>
-              )}
-              {mode === 'fun' && (
-                <VersionSlot mode={mode} lang={lang} stacked={false}>
-                  {(version, l) => version === 'fun' && <ProjectsSection projects={cvs[version][l].projects} />}
-                </VersionSlot>
-              )}
+              <VersionSlot mode={mode} lang={lang} stacked={false}>
+                {(version, l) => {
+                  const other = cvs[version][l].otherExperience
+                  return other && <ExperienceSection jobs={other} other />
+                }}
+              </VersionSlot>
               <VersionSlot mode={mode} lang={lang} stacked={false}>
                 {(version, l) => <EducationSection items={cvs[version][l].education} />}
               </VersionSlot>
+              {mode === 'fun' && (
+                <VersionSlot mode={mode} lang={lang} stacked={false}>
+                  {(version, l) => {
+                    const helpers = cvs[version][l].helpers
+                    return version === 'fun' && helpers && <HelpersSection helpers={helpers} />
+                  }}
+                </VersionSlot>
+              )}
             </div>
           </div>
 

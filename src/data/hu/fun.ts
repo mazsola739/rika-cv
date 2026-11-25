@@ -31,7 +31,7 @@ export const funHu: Cv = {
     'Unikornis (natív támogatás)',
   ],
   languages,
-  // no company names in the fun version – playful ones instead; the development work first, then the money
+  // no company names in the fun version – playful ones instead; same sections, order and points as the pro version
   experience: [
     {
       ...jobs.epamProject,
@@ -39,8 +39,14 @@ export const funHu: Cv = {
       location: 'Napfényes Szeged',
       period: 'Egy év, ami háromnak tűnt',
       role: 'Kávé-kód átalakító',
-      intro:
-        'Banki dolgozóknak fejlesztettem React-komponenseket. Korábban egy bank készpénzét kezeltem, itt már a state-jét. A code review-kon megtanultam, hogy a sprint két legoptimistább szava: „kis módosítás”.',
+      intro: 'Egy bank belső alkalmazásán dolgoztam, egy külföldi ügyfél csapatában. Korábban egy bank készpénzét kezeltem, itt már a state-jét.',
+      highlights: [
+        'Négy front-endes és egy full-stackes csapatban írtam React- és TypeScript-komponenseket, az egyszerűtől a „ki írta ezt?”-ig (git blame: én).',
+        'Segítettem leporolni a front-end eszközkészletet – a régi buildet még a dinoszauruszok konfigurálták.',
+        'Code review, refaktorálás, hibajavítás – itt tanultam meg, hogy a sprint két legoptimistább szava: „kis módosítás”.',
+        'Scrum, pair programming és ügyféltalálkozók: megtanultam angolul is azt mondani, hogy „majdnem kész”.',
+        'Kellékek: React, TypeScript, SQL Server, Azure DevOps, Jira, Confluence.',
+      ],
     },
     {
       ...jobs.epamJunior,
@@ -48,9 +54,17 @@ export const funHu: Cv = {
       location: 'Még mindig Szeged',
       period: 'A juniorévek',
       role: 'Junior bugvadász',
-      intro:
-        'Egy építőipari cég mobilappján dolgoztam: mások házakat, én komponenseket építettem – sisak helyett fejhallgatóban. Az alapokat unit tesztekkel ellenőriztem, később az új kollégáknak is megmutattam, hol a bejárat.',
+      intro: 'Egy építőipari cég ügyfeleinek szóló mobilappon dolgoztam: mások házakat, én komponenseket építettem – sisak helyett fejhallgatóban.',
+      highlights: [
+        'Egy négyfős front-end csapat juniorjaként terveztem és építettem UI-komponenseket, egy vezető és két senior szeme előtt.',
+        'Unit teszteket írtam, mert a „nálam működik” nem számít műszaki átadásnak.',
+        'Az új csapattagoknak megmutattam, hol a bejárat, hol a kávé és hol a dokumentáció – ebben a sorrendben.',
+        'Scrum, pair programming és ügyféltalálkozók, angolul.',
+        'Szerszámosláda: Oracle DB, Azure DevOps, Confluence, BrowserStack.',
+      ],
     },
+  ],
+  otherExperience: [
     {
       ...jobs.exchange,
       company: 'Valutabirodalom Kft.',
@@ -58,14 +72,19 @@ export const funHu: Cv = {
       role: 'Pénzdíler',
       intro:
         'Kiderült, hogy a pénzt is lehet refaktorálni: egy ötezresből két kétezres és egy ezres lesz, bug nélkül. Nappal valutát váltok, este üzemmódot.',
+      highlights: ['Valutát váltok és készpénzt kezelek az ügyfeleknek – az árfolyam élőben frissül, akár egy WebSocket.'],
     },
     {
       ...jobs.bank,
       company: 'Fort Knox',
       period: 'Öt aranyév',
       role: 'Főkincstárnok',
-      intro:
-        'A széf kulcsa volt az első access tokenem: kézzelfogható, nem jár le, és nagyon nem akartam elveszíteni. Az ATM-eket úgy etettem, ahogy más a cicáit: pontosan, minden nap – és egyszer sem köszönték meg.',
+      intro: 'A széf kulcsa volt az első access tokenem: kézzelfogható, nem jár le, és nagyon nem akartam elveszíteni.',
+      highlights: [
+        'Én vigyáztam az értéktárra és a pénzkészletre – a zárás nálam zöld tesztet jelentett.',
+        'Bonyolítottam a napi készpénzforgalmat: éles környezet, rollback nélkül.',
+        'Az ATM-eket úgy etettem, ahogy más a cicáit: pontosan, minden nap – és egyszer sem köszönték meg.',
+      ],
     },
   ],
   projects: [
@@ -76,7 +95,13 @@ export const funHu: Cv = {
       period: 'Folyt. köv.',
       role: 'Főnök, gyakornok és takarító egy személyben',
       intro:
-        '2023 óta egy szociális dedukciós társasjáték online változatát építem. A játékosoknak azt kell kitalálniuk, kiben bízhatnak – nekem azt, melyik WebSocket-üzenetben. 2023–2024-ben kézzel raktam le a React és Node.js alapokat, 2025 óta Copilottal, majd Claude-dal bővítem: TypeScript, DynamoDB, Rust backend és WebRTC hangchat, vagyis a gyanakvás immár peer-to-peer. Hétvégén a barátaim tesztelik a játékot, hétköznap a bugok tesztelnek engem.',
+        '2023 óta egyedül építem egy szociális dedukciós társasjáték online változatát. A játékosoknak azt kell kitalálniuk, kiben bízhatnak – nekem azt, melyik WebSocket-üzenetben.',
+      highlights: [
+        'Tudja: valós idejű lobby és játékszobák, magyar és angol narrátor az éjszakai fázisban, hangchat és mentett játékadatok – a gyanakvás immár peer-to-peer.',
+        '2023–2024, kézzel: React és MobX elöl, Node.js és Express hátul, WebSocket a kettő között.',
+        '2025 óta előbb Copilottal, majd Claude-dal: TypeScript, DynamoDB, Rustban újraírt backend és WebRTC hangchat. Ő gépel gyorsabban, én döntök.',
+        'Minőség: Vitest, Testing Library, többjátékos Playwright-tesztek, Storybook és GitHub Actions, több mint 2400 commit. Hétvégén a barátaim tesztelik a játékot, hétköznap a bugok tesztelnek engem.',
+      ],
     },
   ],
   education: [
