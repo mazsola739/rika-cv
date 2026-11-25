@@ -5,42 +5,34 @@ import type { Cv } from '../types'
 export const funEn: Cv = {
   name: 'Erika “Rika” Rostás',
   title: 'Full-stack unicorn',
-  tagline: 'Teamplayer / Continuous learner / Internet (l)user / Humble-Hungry-Smart / ENTP',
+  tagline: 'Team player / Perpetual beta / Humble-Hungry-Smart / ENTP',
   summary:
-    'I started on the front end in 2021; these days I run the code front to back. I became a programmer because I didn’t want to starve – and I’m job hunting now because I still like to eat. When I get stuck, I do a bit of Claude-ing.',
+    'I started on the front end in 2021, then got curious about what happens behind the button – now I build that too. I became a programmer because I like to eat, and I’m job hunting because that hasn’t changed. Claude and I pair-program: we share the keyboard, the responsibility is mine.',
   photo: {
     src: photos.fun,
     alt: 'Erika lying on her back, hiding her face behind her hands, bright red hair fanned out, with a pixel speech bubble saying “I’m a unicorn”',
   },
-  // playful contact details: a made-up, movie-style 555 number instead of the masked real one, and labels for the
-  // real e-mail and LinkedIn links (the e-mail label ends in a made-up domain, so a copied address reaches nobody)
+  // playful contact details: a made-up, movie-style 555 number instead of the masked real one, and playful labels
+  // for the real e-mail, LinkedIn and GitHub links (the links themselves go to the real places)
   contact: {
     ...contact,
     phone: '+36 555 CALL-ME-NOW',
-    emailLabel: 'mazsola39@pickme.please',
-    location: 'From anywhere you need me',
-    linkedinLabel: 'Hire me, pretty please',
+    emailLabel: 'Send me a message',
+    location: 'Wherever the Wi-Fi is good',
+    linkedinLabel: 'My professional alter ego',
   },
   expertise: [
-    'Reading in bed',
-    'Boardgames on and off(line)',
-    'Singing in the shower',
-    'Turning coffee into code and/or magic',
-    'Claude-ing (pair programming with my AI buddy)',
-    'DIY & Recycling',
-    'Unicorn',
+    'Reading in bed (night mode)',
+    'Board games, online and off (conflict resolution)',
+    'Shower singing (closed beta)',
+    'Coffee → code (experimental technology)',
+    'Claude-ing: human + AI, not AI instead of human',
+    'DIY, recycling and refactoring',
+    'Unicorn (native support)',
   ],
   languages,
-  // no company names in the fun version – playful ones instead
+  // no company names in the fun version – playful ones instead; the development work first, then the money
   experience: [
-    {
-      ...jobs.exchange,
-      company: 'The Currency Empire Ltd.',
-      period: 'Still counting',
-      role: 'Money Dealer',
-      intro:
-        'Turns out money can be refactored too: one big note goes in, a handful of small ones come out, zero bugs. In the evening I exchange myself back into a developer – nobody has asked for a receipt yet.',
-    },
     {
       ...jobs.epamProject,
       company: 'Some Programming Company™',
@@ -48,16 +40,24 @@ export const funEn: Cv = {
       period: 'One year that felt like three',
       role: 'Coffee-to-Code Converter',
       intro:
-        "I moved into a bank's code for a year. I lured the bugs out with coffee, and code reviews taught me that 'just a tiny change' is never tiny.",
+        "I built React components for a bank's internal app. I used to handle a bank's cash; this time I was handling its state. Code reviews taught me that the two most optimistic words in a sprint are 'tiny change'.",
     },
     {
       ...jobs.epamJunior,
       company: 'Same place, still in beta',
       location: 'Still sunny Szeged',
       period: 'Junior era',
-      role: 'Bug Hunter in Training',
+      role: 'Junior Bug Hunter',
       intro:
-        'I built a mobile app for the construction industry, so technically I worked on a building site – just in headphones instead of a hard hat.',
+        "I worked on a construction company's mobile app: other people built houses, I built components – in headphones instead of a hard hat. Unit tests checked the foundations, and later I showed the new teammates where the front door was.",
+    },
+    {
+      ...jobs.exchange,
+      company: 'The Currency Empire Ltd.',
+      period: 'Still counting',
+      role: 'Money Dealer',
+      intro:
+        'Turns out money can be refactored too: one big note goes in, a handful of small ones come out, zero bugs. By day I exchange currencies; by night I switch modes.',
     },
     {
       ...jobs.bank,
@@ -65,7 +65,7 @@ export const funEn: Cv = {
       period: 'Five golden years',
       role: 'Chief Treasurer',
       intro:
-        'For five years the vault key was my best friend. So many banknotes passed through my hands that I can spot a crumpled one with my eyes closed. I fed the ATMs the way other people feed their cats: on time, every single day – and not once did they say thank you.',
+        'The vault key was my first access token: physical, non-expiring, and definitely not something I wanted to lose. I fed the ATMs the way other people feed their cats: on time, every single day – and not once did they say thank you.',
     },
   ],
   projects: [
@@ -76,13 +76,13 @@ export const funEn: Cv = {
       period: 'To be continued',
       role: 'CEO, intern and cleaner in one',
       intro:
-        'A board game I write at night, played at night: the villagers try to survive the night, and I try to survive a deadline nobody ever set. On weekends my friends test the game; on weekdays the bugs test me.',
+        "Since 2023 I've been building an online social deduction board game. The players have to work out whom they can trust; I have to work out which WebSocket message to trust. I laid the React and Node.js foundation by hand in 2023–2024, and since 2025 I've been extending it with Copilot, then Claude: TypeScript, DynamoDB, a Rust back end and WebRTC voice chat – suspicion is now peer-to-peer. On weekends my friends test the game; on weekdays the bugs test me.",
     },
   ],
   education: [
     {
       story:
-        'I spent my high school years with mathematics, physics and computer science – the full nerd starter pack.',
+        'I spent my high school years with mathematics, physics and computer science – the full nerd starter pack. Back then, an eraser was my Ctrl+Z.',
     },
   ],
   skills: [
@@ -97,7 +97,7 @@ export const funEn: Cv = {
     photo: catsPhoto,
     alt: 'Four cats curled up together on a turquoise blanket: a grey one, two white ones and a black one',
     caption:
-      'Natasa, Luna, Kira and Sura (top to bottom), my code review board: every pull request gets their full attention – they review it by sleeping on it.',
+      'Natasa, Luna, Kira and Sura (top to bottom), my code review board: they usually sleep on pull requests. To merge, all tests must be green and no cat may be sitting on Enter.',
   },
   contactCta: {
     text: 'Drop me a line – I reply faster than the build finishes.',
