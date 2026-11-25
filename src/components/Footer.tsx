@@ -65,7 +65,8 @@ export function ContactCta({ email, cta, onOpen }: { email: string; cta: Cv['con
         <MailIcon className="size-5" />
         {cta.button}
       </a>
-      <p className="max-w-xs px-3 text-sm leading-relaxed sm:px-4">{cta.text}</p>
+      {/* As wide as the button above it, centred under it. */}
+      <p className="px-3 text-center text-sm leading-relaxed text-balance sm:px-4">{cta.text}</p>
     </div>
   )
 }

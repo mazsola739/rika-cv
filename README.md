@@ -56,7 +56,8 @@ prerendered, so crawlers that don't run JavaScript get the static HTML above ins
 - The right column starts with the own project (the board game), followed by the development work and, in a section
   of its own, the other jobs (`otherExperience`). The fun version keeps one list of jobs, then the projects.
 - The contact list has a fifth row, the GitHub profile; contact links are not underlined.
-- Skills are groups without percentages (`skillGroups`); the fun version keeps its playful rings.
+- Expertise lists the skills one by one, in two columns; the footer keeps the skill rings in both versions. The
+  plain-text CV shows the same skills in groups (`skillGroups`), without levels.
 
 ## Link previews
 

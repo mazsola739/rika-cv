@@ -135,7 +135,7 @@ export default function App() {
             className={`cv-footer order-5 lg:col-span-2 lg:mt-16 lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-x-(--gx) ${footerBand}`}
           >
             <VersionSlot mode={mode} lang={lang} className="lg:col-start-2 lg:row-start-1">
-              {(version, l) => <SkillsSection skills={cvs[version][l].skills} groups={cvs[version][l].skillGroups} />}
+              {(version, l) => <SkillsSection skills={cvs[version][l].skills} />}
             </VersionSlot>
             <VersionSlot mode={mode} lang={lang} className="mt-8 lg:col-start-1 lg:row-start-1 lg:mt-0">
               {(version, l) => (

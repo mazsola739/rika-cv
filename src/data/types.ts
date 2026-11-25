@@ -68,9 +68,9 @@ export interface Cv {
   /** Own projects, laid out like jobs (`company` = project, `location` = kind of project). */
   projects: Job[]
   education: Education[]
-  /** Skill rings with a playful percentage (fun version). */
+  /** Skill rings in the footer (self-rated in the pro version, playful in the fun one). */
   skills: Skill[]
-  /** Skill groups without percentages (pro version); shown instead of the rings when present. */
+  /** Skill groups without levels: the plain-text CV's Skills section (PlainCv.tsx). */
   skillGroups?: SkillGroup[]
   /** Fun version: the cats of the code review board, under the languages (no photo yet: caption only). */
   helpers?: { title: string; photo?: string; alt: string; caption: string }

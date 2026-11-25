@@ -68,7 +68,8 @@ export function ListSection({ titleKey, items }: { titleKey: 'expertise' | 'lang
   const titles = useSectionTitles()
   return (
     <Section title={titles[titleKey]}>
-      <BulletList items={items} className="pl-10 fun:pl-8" animate />
+      {/* A long list (the pro expertise, one skill per line) in two columns. */}
+      <BulletList items={items} className={`pl-10 fun:pl-8 ${items.length > 10 ? 'columns-2 gap-8 *:break-inside-avoid' : ''}`} animate />
     </Section>
   )
 }

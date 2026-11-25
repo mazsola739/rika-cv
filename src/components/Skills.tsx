@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import type { Skill, SkillGroup } from '../data/types'
+import type { Skill } from '../data/types'
 import { reveal } from '../hooks/reveal'
 import { useSectionTitles } from '../i18n/context'
 import { Section } from './Section'
@@ -38,37 +38,9 @@ function SkillRing({ label, value }: Skill) {
   )
 }
 
-/**
- * Pro version: the skills in groups, without levels – a self-rated percentage says little, the groups show what
- * goes together. Two columns on phones, all five in a row on desktop, like the rings of the fun version.
- */
-function SkillGroups({ groups }: { groups: SkillGroup[] }) {
-  return (
-    <ul ref={reveal} data-reveal="stagger" className="grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-3 lg:grid-cols-5 lg:gap-x-3">
-      {groups.map((group) => (
-        <li key={group.label} className="min-w-0">
-          <h3 className="mb-1.5 font-heading text-xs leading-tight font-bold tracking-wide uppercase">{group.label}</h3>
-          <ul className="space-y-0.5 text-[0.8125rem] leading-snug hyphens-auto">
-            {group.items.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-/** Skills, in the footer: groups in the pro version, rings in the fun one. The colour band behind them belongs to the footer (see bands.ts). */
-export function SkillsSection({ skills, groups }: { skills: Skill[]; groups?: SkillGroup[] }) {
+/** Skill rings, in the footer. The colour band behind them belongs to the footer (see bands.ts). */
+export function SkillsSection({ skills }: { skills: Skill[] }) {
   const titles = useSectionTitles()
-  if (groups) {
-    return (
-      <Section title={titles.skills}>
-        <SkillGroups groups={groups} />
-      </Section>
-    )
-  }
   return (
     <Section title={titles.skills}>
       {/* All rings in one row on every screen, bottom-aligned even when a label wraps to more lines. */}
