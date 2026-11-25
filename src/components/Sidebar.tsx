@@ -35,7 +35,7 @@ export function ContactSection({ contact }: { contact: Contact }) {
         {contactRows(contact, t).map(({ icon: Icon, label, text, note, href }) => (
           <li key={label} className="flex items-center gap-4">
             {/* The colour of its height on the page (page ombre). */}
-            <span data-ombre className="grid size-10 shrink-0 place-items-center rounded-full bg-(--ombre-color) text-page fun:text-white">
+            <span data-ombre className="grid size-10 shrink-0 place-items-center rounded-full bg-(--ombre-color) text-page fun:text-white text-contour">
               <Icon className="size-5" />
               <span className="sr-only">{label}</span>
             </span>

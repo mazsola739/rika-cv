@@ -23,7 +23,7 @@ export function Section({ title, children, className = '' }: SectionProps) {
       <h2
         id={id}
         data-ombre
-        className="relative mb-5 flex min-h-11 items-center justify-center rounded-full bg-(--ombre-color) py-1.5 pl-[0.32em] text-center leading-tight text-balance font-heading text-[0.95rem] font-medium tracking-[0.32em] text-page uppercase fun:text-lg fun:font-bold fun:text-white"
+        className="relative mb-5 flex min-h-11 items-center justify-center rounded-full bg-(--ombre-color) py-1.5 pl-[0.32em] text-center leading-tight text-balance font-heading text-[0.95rem] font-medium tracking-[0.32em] text-page uppercase fun:text-lg fun:font-bold fun:text-white text-contour"
       >
         <TitleBlooms />
         {title}

@@ -396,6 +396,17 @@
   filter: drop-shadow(0 0 0.5px rgb(0 0 0 / 0.55));
 }
 
+/* Fun only: the same faint contour around white letters and icons on the ombre pills (e.g. white on yellow). */
+.text-contour {
+  @variant fun {
+    text-shadow: 0 0 0.5px rgb(0 0 0 / 0.55), 0 0 0.5px rgb(0 0 0 / 0.55);
+
+    & svg {
+      filter: drop-shadow(0 0 0.5px rgb(0 0 0 / 0.55));
+    }
+  }
+}
+
 /* Butterflies (Butterfly in Blooms.tsx, useButterflies): they turn and flap their wings around their own centre. */
 [data-butterfly],
 [data-butterfly] > g {

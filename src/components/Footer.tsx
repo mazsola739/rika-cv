@@ -60,7 +60,7 @@ export function ContactCta({ email, cta, onOpen }: { email: string; cta: Cv['con
         }}
         aria-haspopup={onOpen ? 'dialog' : undefined}
         data-ombre
-        className="flex h-11 items-center justify-center gap-2.5 rounded-full bg-(--ombre-color) px-6 font-heading text-sm font-semibold tracking-[0.2em] text-page uppercase shadow-md transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink fun:text-white"
+        className="flex h-11 items-center justify-center gap-2.5 rounded-full bg-(--ombre-color) px-6 font-heading text-sm font-semibold tracking-[0.2em] text-page uppercase shadow-md transition-[translate,box-shadow] hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink fun:text-white text-contour"
       >
         <MailIcon className="size-5" />
         {cta.button}
