@@ -396,13 +396,17 @@
   filter: drop-shadow(0 0 0.5px rgb(0 0 0 / 0.55));
 }
 
-/* Fun only: the same faint contour around white letters and icons on the ombre pills (e.g. white on yellow). */
+/*
+ * Fun only: a faint contour around white letters and icons on the ombre pills (e.g. white on yellow),
+ * in a darker shade of the pill's own colour instead of black, so it looks the same on every colour.
+ */
 .text-contour {
   @variant fun {
-    text-shadow: 0 0 0.5px rgb(0 0 0 / 0.55), 0 0 0.5px rgb(0 0 0 / 0.55);
+    --contour: color-mix(in oklab, var(--ombre-color, var(--uni-hotpink)) 55%, black);
+    text-shadow: 0 0 0.5px var(--contour), 0 0 0.5px var(--contour), 0 0 1px var(--contour);
 
     & svg {
-      filter: drop-shadow(0 0 0.5px rgb(0 0 0 / 0.55));
+      filter: drop-shadow(0 0 0.6px var(--contour));
     }
   }
 }

@@ -74,11 +74,11 @@ export function ListSection({ titleKey, items }: { titleKey: 'expertise' | 'lang
   )
 }
 
-/** Fun version, at the end of the main column: the cats of the code review board – a photo and a caption (side by side from sm). */
+/** Fun version, under the languages: the cats of the code review board – a photo and a caption. */
 export function HelpersSection({ helpers }: { helpers: NonNullable<Cv['helpers']> }) {
   return (
     <Section title={helpers.title}>
-      <figure ref={reveal} data-reveal="up" className="space-y-4 sm:flex sm:items-center sm:gap-6 sm:space-y-0">
+      <figure ref={reveal} data-reveal="up" className="space-y-4">
         {helpers.photo && (
           // The frame takes the colour of its height on the page (page ombre), like the title pills around it.
           <img
@@ -86,10 +86,11 @@ export function HelpersSection({ helpers }: { helpers: NonNullable<Cv['helpers']
             alt={helpers.alt}
             loading="lazy"
             data-ombre
-            className="mx-auto aspect-3/4 w-full max-w-72 shrink-0 rounded-2xl sm:mx-0 sm:w-48 border-4 border-(--ombre-color) object-cover shadow-lg"
+            className="mx-auto aspect-3/4 w-full max-w-72 rounded-2xl border-4 border-(--ombre-color) object-cover shadow-lg"
           />
         )}
-        <figcaption className="text-justify leading-relaxed hyphens-auto">{helpers.caption}</figcaption>
+        {/* starts where the flower bullets of the lists above start (list padding 2rem, flower 1.45em to its left) */}
+        <figcaption className="pl-[calc(2rem-1.45em)] text-justify leading-relaxed hyphens-auto">{helpers.caption}</figcaption>
       </figure>
     </Section>
   )
