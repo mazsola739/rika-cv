@@ -14,6 +14,8 @@ export interface Contact {
   linkedin: string
   /** Shown instead of the LinkedIn address (fun version); the link still goes to the profile. */
   linkedinLabel?: string
+  /** Display form, e.g. `github.com/someone` */
+  github: string
 }
 
 export interface Job {
@@ -29,13 +31,6 @@ export interface Job {
   project?: string[]
   /** "Key Achievements and Responsibilities" bullets. */
   achievements?: string[]
-  /** Real, public links (demo, repository), shown under the bullets. */
-  links?: Link[]
-}
-
-export interface Link {
-  label: string
-  href: string
 }
 
 /** A group of related skills, without levels (the pro version's skills summary). */

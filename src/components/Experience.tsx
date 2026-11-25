@@ -38,23 +38,6 @@ function JobEntry({ job }: { job: Job }) {
           <BulletList items={job.achievements} />
         </>
       )}
-
-      {job.links && (
-        <ul className="flex flex-wrap gap-x-5 gap-y-1 pt-1 text-sm">
-          {job.links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold underline underline-offset-4 hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
     </article>
   )
 }

@@ -8,7 +8,6 @@ export const languages = ['Angol (B2)', 'Magyar (anyanyelv)']
 /** Saját projektek: a `company` a projekt, a `location` a projekt fajtája. */
 export const projects = {
   boardGame: { company: 'Többjátékos online társasjáték', location: 'Önálló full-stack projekt', period: '2023 – jelenleg', role: 'Full-stack fejlesztő' },
-  cvApp: { company: 'Önéletrajz-webalkalmazás', location: 'Önálló projekt', period: '2026', role: 'Front-end fejlesztő' },
 } satisfies Record<string, JobMeta>
 
 export const jobs = {

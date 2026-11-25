@@ -1,4 +1,4 @@
-import { photos, SITE_URL } from '../shared'
+import { photos } from '../shared'
 import { contact, jobs, languages, projects } from './common'
 import type { Cv } from '../types'
 
@@ -55,16 +55,6 @@ export const proEn: Cv = {
         'Since 2025, with AI assistance (GitHub Copilot, then Claude): moved the code to TypeScript, integrated DynamoDB, rebuilt the back end in Rust (Axum, Tokio) and added WebRTC voice chat.',
         'Quality: unit tests with Vitest and Testing Library, multiplayer end-to-end tests with Playwright, Storybook, CI/CD with GitHub Actions; 2,400+ commits.',
         'Tech: React, TypeScript, MobX, Tailwind CSS, Node.js, Express, WebSocket, Rust, DynamoDB, WebRTC.',
-      ],
-      links: [{ label: 'Showcase: mazsola739.github.io/rika-onug-showcase', href: 'https://mazsola739.github.io/rika-onug-showcase/' }],
-    },
-    {
-      ...projects.cvApp,
-      intro:
-        'This CV: a React and TypeScript app in English and Hungarian, with a professional and a fun version, PDFs printed by Playwright and deployment to GitHub Pages with GitHub Actions.',
-      links: [
-        { label: 'Code: github.com/mazsola739/rika-cv', href: 'https://github.com/mazsola739/rika-cv' },
-        { label: `Live: ${SITE_URL.replace('https://', '').replace(/\/$/, '')}`, href: SITE_URL },
       ],
     },
   ],

@@ -71,7 +71,8 @@ export default function App() {
             {/* Desktop: leave room for the diagonal bar coming out of the photo. */}
             <div className="order-3 flex flex-col gap-8 lg:order-none lg:mt-[calc(30cqw+var(--photo)*0.27+1.75rem)]">
               <VersionSlot mode={mode} lang={lang}>{(version, l) => <ContactSection contact={cvs[version][l].contact} />}</VersionSlot>
-              <VersionSlot mode={mode} lang={lang}>
+              {/* Not stacked: the fun list is longer, and would leave a gap under the pro one. */}
+              <VersionSlot mode={mode} lang={lang} stacked={false}>
                 {(version, l) => <ListSection titleKey="expertise" items={cvs[version][l].expertise} />}
               </VersionSlot>
               <VersionSlot mode={mode} lang={lang}>

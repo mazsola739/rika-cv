@@ -8,7 +8,6 @@ export const languages = ['English (B2)', 'Hungarian (native)']
 /** Own projects: `company` is the project, `location` the kind of project. */
 export const projects = {
   boardGame: { company: 'Online multiplayer board game', location: 'Independent full-stack project', period: '2023 - Present', role: 'Full-stack developer' },
-  cvApp: { company: 'CV web app', location: 'Independent project', period: '2026', role: 'Front-end developer' },
 } satisfies Record<string, JobMeta>
 
 export const jobs = {

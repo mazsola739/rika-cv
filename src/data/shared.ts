@@ -27,6 +27,7 @@ export const contactBase = {
   phone: '+36 •• ••• ••••',
   email: 'mazsola39@gmail.com',
   linkedin: 'linkedin.com/in/mazsi39/',
+  github: 'github.com/mazsola739',
 } satisfies Omit<Contact, 'location'>
 
 /** Job metadata is the same in the pro and fun version of a language – only the storytelling differs. */

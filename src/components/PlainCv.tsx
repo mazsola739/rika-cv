@@ -69,15 +69,6 @@ function Entry({ job }: { job: Job }) {
           ))}
         </ul>
       )}
-      {job.links && (
-        <ul>
-          {job.links.map((link) => (
-            <li key={link.href}>
-              {link.label.split(':')[0]}: <a href={link.href}>{link.href}</a>
-            </li>
-          ))}
-        </ul>
-      )}
     </div>
   )
 }
@@ -102,7 +93,8 @@ export function PlainCv({ lang }: { lang: Lang }) {
         {cv.contact.location} | <a href={`mailto:${cv.contact.email}`}>{cv.contact.email}</a> | <a href={linkedin}>{linkedin}</a>
       </p>
       <p>
-        {t.phone} | {t.site}: <a href={siteUrl(lang)}>{siteUrl(lang)}</a>
+        {t.phone} | <a href={`https://${cv.contact.github}`}>{`https://${cv.contact.github}`}</a> | {t.site}:{' '}
+        <a href={siteUrl(lang)}>{siteUrl(lang)}</a>
       </p>
 
       <h2>{t.summary}</h2>

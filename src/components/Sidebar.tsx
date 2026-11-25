@@ -3,7 +3,7 @@ import type { Contact, Cv } from '../data/types'
 import { reveal } from '../hooks/reveal'
 import { useSectionTitles, useText } from '../i18n/context'
 import type { UiText } from '../i18n/ui'
-import { HomeIcon, LinkedInIcon, MailIcon, PhoneIcon } from './icons'
+import { GitHubIcon, HomeIcon, LinkedInIcon, MailIcon, PhoneIcon } from './icons'
 import { BulletList, Section } from './Section'
 
 interface ContactRow {
@@ -22,6 +22,7 @@ function contactRows(contact: Contact, t: UiText): ContactRow[] {
     { icon: MailIcon, label: t.email, text: contact.emailLabel ?? contact.email, href: `mailto:${contact.email}` },
     { icon: HomeIcon, label: t.location, text: contact.location },
     { icon: LinkedInIcon, label: t.linkedin, text: contact.linkedinLabel ?? contact.linkedin, href: `https://www.${contact.linkedin}` },
+    { icon: GitHubIcon, label: 'GitHub', text: contact.github, href: `https://${contact.github}` },
   ]
 }
 
@@ -41,7 +42,7 @@ export function ContactSection({ contact }: { contact: Contact }) {
             {href ? (
               <a
                 href={href}
-                className="break-all underline-offset-4 hover:underline"
+                className="break-all no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
                 {...(href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
               >
                 {text}

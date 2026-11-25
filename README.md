@@ -53,9 +53,9 @@ prerendered, so crawlers that don't run JavaScript get the static HTML above ins
 ## Pro version: content and layout
 
 - The title has two parts, `Full-stack Developer | AI-Assisted Software Engineering`: each part gets its own line.
-- The right column starts with the own projects (the board game, then this CV), followed by the development work and,
-  in a section of its own, the other jobs (`otherExperience`). The fun version keeps one list of jobs, then the projects.
-- Project links (`links` on a job) are real, public pages: the board game's showcase, this repository and the site.
+- The right column starts with the own project (the board game), followed by the development work and, in a section
+  of its own, the other jobs (`otherExperience`). The fun version keeps one list of jobs, then the projects.
+- The contact list has a fifth row, the GitHub profile; contact links are not underlined.
 - Skills are groups without percentages (`skillGroups`); the fun version keeps its playful rings.
 
 ## Link previews

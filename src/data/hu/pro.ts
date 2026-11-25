@@ -1,4 +1,4 @@
-import { photos, SITE_URL } from '../shared'
+import { photos } from '../shared'
 import { contact, jobs, languages, projects } from './common'
 import type { Cv } from '../types'
 
@@ -55,16 +55,6 @@ export const proHu: Cv = {
         '2025 óta AI-asszisztenciával (előbb GitHub Copilottal, majd Claude-dal): TypeScriptre állítottam a kódot, bekötöttem a DynamoDB-t, Rustban (Axum, Tokio) újraírtam a backendet, és WebRTC hangchatet készítettem.',
         'Minőség: unit tesztek Vitesttel és Testing Libraryvel, többjátékos end-to-end tesztek Playwrighttal, Storybook, CI/CD GitHub Actionsszel; több mint 2400 commit.',
         'Technológiák: React, TypeScript, MobX, Tailwind CSS, Node.js, Express, WebSocket, Rust, DynamoDB, WebRTC.',
-      ],
-      links: [{ label: 'Bemutató: mazsola739.github.io/rika-onug-showcase', href: 'https://mazsola739.github.io/rika-onug-showcase/' }],
-    },
-    {
-      ...projects.cvApp,
-      intro:
-        'Ez az önéletrajz: magyar és angol nyelvű React- és TypeScript-alkalmazás szakmai és vicces változattal, Playwrighttal nyomtatott PDF-ekkel, GitHub Actionsszel GitHub Pagesre telepítve.',
-      links: [
-        { label: 'Kód: github.com/mazsola739/rika-cv', href: 'https://github.com/mazsola739/rika-cv' },
-        { label: `Élő oldal: ${SITE_URL.replace('https://', '').replace(/\/$/, '')}`, href: SITE_URL },
       ],
     },
   ],
