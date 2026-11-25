@@ -7,7 +7,7 @@ export const funEn: Cv = {
   title: 'Full-stack unicorn',
   tagline: 'Teamplayer / Continuous learner / Internet (l)user / Humble-Hungry-Smart / ENTP',
   summary:
-    'Started out on the front end in 2021, working across the full stack since 2023. My daily bread: React with TypeScript up front, Node.js with Express in the back – and lately I keep flirting with Rust. Claude is my pair-programming buddy, and my four cats – Natasa, Luna, Kira and Sura – are my toughest audience.',
+    'I started on the front end in 2021; these days I run the code front to back. I became a programmer because I didn’t want to starve – and I’m job hunting now because I still like to eat. When I get stuck, I do a bit of Claude-ing.',
   photo: {
     src: photos.fun,
     alt: 'Erika lying on her back, hiding her face behind her hands, bright red hair fanned out, with a pixel speech bubble saying “I’m a unicorn”',
@@ -35,34 +35,34 @@ export const funEn: Cv = {
   experience: [
     {
       ...jobs.exchange,
-      company: 'Forint–Euro Dating Agency',
-      period: '2024 – still counting',
+      company: 'The Currency Empire Ltd.',
+      period: 'Still counting',
       role: 'Money Dealer',
       intro:
-        'Turns out money can be refactored too: one big note goes in, a handful of small ones come out, zero bugs. Forints and euros meet at my counter, and I just whisper the exchange rate. In the evening I exchange myself back into a developer – nobody has asked for a receipt yet.',
+        'Turns out money can be refactored too: one big note goes in, a handful of small ones come out, zero bugs. In the evening I exchange myself back into a developer – nobody has asked for a receipt yet.',
     },
     {
       ...jobs.epamProject,
       company: 'Some Programming Company™',
       location: 'Sunny Szeged',
-      period: '2023 – one busy year',
+      period: 'One year that felt like three',
       role: 'Coffee-to-Code Converter',
       intro:
-        "I moved into a bank's code for a year. This time I didn't count the money – I pushed pixels around until every button landed exactly where the designer dreamed it would. I lured the bugs out with coffee, and code reviews taught me that 'just a tiny change' is never tiny.",
+        "I moved into a bank's code for a year. I lured the bugs out with coffee, and code reviews taught me that 'just a tiny change' is never tiny.",
     },
     {
       ...jobs.epamJunior,
       company: 'Same place, still in beta',
       location: 'Still sunny Szeged',
-      period: '2022 – 2023, junior era',
-      role: 'Professional “why is this red?” asker',
+      period: 'Junior era',
+      role: 'Bug Hunter in Training',
       intro:
-        'I built a mobile app for the construction industry, so technically I worked on a building site – just in headphones instead of a hard hat. Every day I asked the seniors why something was red, and every day they patiently explained. By the time I ran out of questions, I was the one telling the newcomers why it was red.',
+        'I built a mobile app for the construction industry, so technically I worked on a building site – just in headphones instead of a hard hat.',
     },
     {
       ...jobs.bank,
-      company: 'Fort Knox, Hungarian branch',
-      period: '2016 – 2021, golden years',
+      company: 'Fort Knox',
+      period: 'Five golden years',
       role: 'Chief Treasurer',
       intro:
         'For five years the vault key was my best friend. So many banknotes passed through my hands that I can spot a crumpled one with my eyes closed. I fed the ATMs the way other people feed their cats: on time, every single day – and not once did they say thank you.',
@@ -71,18 +71,18 @@ export const funEn: Cv = {
   projects: [
     {
       ...projects.boardGame,
-      company: 'Bedroom Studios Ltd.',
+      company: 'Rika & Rika & Rika Ltd.',
       location: 'Night shift, unpaid',
-      period: '2023 – to be continued',
+      period: 'To be continued',
       role: 'CEO, intern and cleaner in one',
       intro:
-        'A board game I write at night, played at night: the villagers try to survive the night, and I try to survive a deadline nobody ever set. On weekends my friends test the game; on weekdays the bugs test me. Will it ever be finished? Someday. Maybe. Until then: one more commit.',
+        'A board game I write at night, played at night: the villagers try to survive the night, and I try to survive a deadline nobody ever set. On weekends my friends test the game; on weekdays the bugs test me.',
     },
   ],
   education: [
     {
       story:
-        'I spent my high school years with mathematics, physics and computer science – the full nerd starter pack. Back then I was still figuring out how the internet works; these days I build bits of it.',
+        'I spent my high school years with mathematics, physics and computer science – the full nerd starter pack.',
     },
   ],
   skills: [

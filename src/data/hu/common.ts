@@ -13,6 +13,6 @@ export const projects = {
 export const jobs = {
   exchange: { company: 'Interchange FX', location: '', period: '2024 – jelenleg', role: 'Valutapénztáros' },
   epamProject: { company: 'EPAM Systems', location: 'Szeged', period: '2023', role: 'Software Engineer' },
-  epamJunior: { company: 'EPAM Systems', location: 'Szeged', period: '2022 – 2023', role: 'Junior Software Engineer' },
+  epamJunior: { company: 'EPAM Systems', location: 'Szeged', period: '2021 – 2023', role: 'Junior Software Engineer' },
   bank: { company: 'MBH Bank', location: '', period: '2016 – 2021', role: 'Főpénztáros' },
 } satisfies Record<JobKey, JobMeta>

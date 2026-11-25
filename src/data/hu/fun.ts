@@ -7,7 +7,7 @@ export const funHu: Cv = {
   title: 'Full-stack unikornis',
   tagline: 'Csapatjátékos / Örök tanuló / Internet-(l)user / Szerény-Elszánt-Okos / ENTP',
   summary:
-    '2021-ben front-endesként indultam, 2023 óta a teljes stacken dolgozom. A mindennapi kenyerem: elöl React TypeScripttel, hátul Node.js Expresszel – mostanában pedig a Rusttal is flörtölök. Claude a páros programozó társam, a négy cicám – Natasa, Luna, Kira és Sura – pedig a legszigorúbb közönségem.',
+    '2021-ben front-endesként kezdtem, mára a kódban elöl-hátul én vagyok. Azért lettem programozó, mert nem akartam éhen halni – és azért keresek most is munkát, mert még mindig szeretek enni. Ha elakadok, Claude-olok egyet.',
   photo: {
     src: photos.fun,
     alt: 'Erika a hátán fekszik, az arcát a kezei mögé rejti, élénkpiros haja szétterül, mellette pixeles szövegbuborék: „I’m a unicorn”',
@@ -35,35 +35,35 @@ export const funHu: Cv = {
   experience: [
     {
       ...jobs.exchange,
-      company: 'Forint–Euró Randiiroda',
-      period: '2024 – még mindig számolok',
+      company: 'Valutabirodalom Kft.',
+      period: 'Még mindig számolok',
       role: 'Pénzdíler',
       intro:
-        'Kiderült, hogy a pénzt is lehet refaktorálni: egy ötezresből két kétezres és egy ezres lesz, bug nélkül. A forint és az euró nálam ismerkedik egymással, én csak az árfolyamot súgom. Esténként visszaváltom magam fejlesztőre – nyugtát még senki nem kért róla.',
+        'Kiderült, hogy a pénzt is lehet refaktorálni: egy ötezresből két kétezres és egy ezres lesz, bug nélkül. Esténként visszaváltom magam fejlesztőre – nyugtát még senki nem kért róla.',
     },
     {
       ...jobs.epamProject,
       company: 'Valami Programozós Cég Kft.',
       location: 'Napfényes Szeged',
-      period: '2023 – egy pörgős év',
+      period: 'Egy év, ami háromnak tűnt',
       role: 'Kávé-kód átalakító',
       intro:
-        'Egy évre beköltöztem egy bank kódjába. Itt nem a pénzt számoltam, hanem a pixeleket tologattam, amíg minden gomb pont oda nem került, ahová a designer megálmodta. A bugokat kávéval csalogattam elő, a code review-kon pedig megtanultam, hogy a „csak egy apró változtatás” sosem apró.',
+        'Egy évre beköltöztem egy bank kódjába. A bugokat kávéval csalogattam elő, a code review-kon pedig megtanultam, hogy a „csak egy apró változtatás” sosem apró.',
     },
     {
       ...jobs.epamJunior,
       company: 'Ugyanott, csak zöldfülűként',
       location: 'Még mindig Szeged',
-      period: '2022 – 2023, a juniorévek',
-      role: 'Hivatásos „ez miért piros?”-kérdező',
+      period: 'A juniorévek',
+      role: 'Bugvadász-gyakornok',
       intro:
-        'Építőipari mobilappot fejlesztettem, vagyis technikailag építkezésen dolgoztam – csak sisak helyett fejhallgatóban. Minden nap megkérdeztem a seniorokat, hogy ez miért piros, és ők minden nap türelmesen elmagyarázták. Mire elfogytak a kérdéseim, már én magyaráztam az újoncoknak, hogy ez miért piros.',
+        'Építőipari mobilappot fejlesztettem, vagyis technikailag építkezésen dolgoztam – csak sisak helyett fejhallgatóban.',
     },
     {
       ...jobs.bank,
-      company: 'Fort Knox – magyar fiók',
-      period: '2016 – 2021, öt aranyév',
-      role: 'Főkincstáros',
+      company: 'Fort Knox',
+      period: 'Öt aranyév',
+      role: 'Főkincstárnok',
       intro:
         'Öt évig a széf kulcsa volt a legjobb barátom. Annyi bankjegy ment át a kezemen, hogy ma már csukott szemmel is megmondom, melyik gyűrött. Az ATM-eket úgy etettem, ahogy más a cicáit: pontosan, minden nap – és egyszer sem köszönték meg.',
     },
@@ -71,18 +71,18 @@ export const funHu: Cv = {
   projects: [
     {
       ...projects.boardGame,
-      company: 'Hálószoba Stúdió Bt.',
+      company: 'Rika & Rika & Rika Bt.',
       location: 'Éjszakai műszak, ingyen',
-      period: '2023 – folyt. köv.',
+      period: 'Folyt. köv.',
       role: 'Főnök, gyakornok és takarító egy személyben',
       intro:
-        'Egy társasjáték, amit éjjel írok, és amit éjjel játszanak: a falu lakói az éjszakát próbálják túlélni, én pedig egy határidőt, amit senki nem szabott ki. Hétvégén a barátaim tesztelik a játékot, hétköznap a bugok tesztelnek engem. Kész lesz valaha? Egyszer. Talán. Addig is: még egy commit.',
+        'Egy társasjáték, amit éjjel írok, és amit éjjel játszanak: a falu lakói az éjszakát próbálják túlélni, én pedig egy határidőt, amit senki nem szabott ki. Hétvégén a barátaim tesztelik a játékot, hétköznap a bugok tesztelnek engem.',
     },
   ],
   education: [
     {
       story:
-        'A gimiben a matek, a fizika és az informatika volt a kedvenc trióm – a teljes kocka kezdőcsomag. Akkor még azt próbáltam kitalálni, hogyan működik az internet; ma már én építek belőle darabokat.',
+        'A gimiben a matek, a fizika és az informatika volt a kedvenc trióm – a teljes kocka kezdőcsomag.',
     },
   ],
   skills: [
