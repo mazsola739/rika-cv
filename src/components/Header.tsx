@@ -28,7 +28,13 @@ export function Header({ cv }: { cv: Cv }) {
         )}
       </h1>
       <p className="mt-1 font-heading text-lg leading-7 font-extrabold tracking-wide uppercase sm:text-2xl sm:leading-8 lg:pr-16 fun:font-normal fun:sm:text-[1.65rem] fun:lg:text-[1.4rem] fun:xl:text-[1.65rem]">
-        {cv.title}
+        {/* A title in parts ("Full-stack Developer | AI-Assisted …"): each part on its own line, the bar only for screen readers. */}
+        {cv.title.split(' | ').map((part, index) => (
+          <span key={part} className="block">
+            {index > 0 && <span className="sr-only"> | </span>}
+            {part}
+          </span>
+        ))}
       </p>
       {cv.tagline && (
         <p className="mt-3 max-w-xl font-heading text-[0.6875rem] leading-snug tracking-wide text-balance uppercase sm:text-xs">

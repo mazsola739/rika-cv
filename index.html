@@ -4,11 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Erika Rostás – Full-stack Developer. React, TypeScript, Node.js, Jest. Switch between the professional and the fun version of the CV." />
+    <meta name="description" content="Erika Rostás – full-stack developer (React, TypeScript, Node.js, Express) with enterprise experience at EPAM Systems and an AI-assisted way of working with GitHub Copilot and Claude." />
+    <!-- Link previews and search: absolute URLs, since the site lives under /rika-cv/ on GitHub Pages. -->
+    <link rel="canonical" href="https://mazsola739.github.io/rika-cv/" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://mazsola739.github.io/rika-cv/" />
+    <meta property="og:title" content="Erika Rostás – Full-stack Developer | AI-Assisted Software Engineering" />
+    <meta property="og:description" content="Full-stack developer (React, TypeScript, Node.js, Express) with enterprise experience and an AI-assisted way of working. CV in English and Hungarian." />
+    <meta property="og:image" content="https://mazsola739.github.io/rika-cv/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Erika Rostás – Full-stack Developer, AI-Assisted Software Engineering" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="hu_HU" />
+    <meta property="profile:first_name" content="Erika" />
+    <meta property="profile:last_name" content="Rostás" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Erika Rostás – Full-stack Developer | AI-Assisted Software Engineering" />
+    <meta name="twitter:description" content="Full-stack developer (React, TypeScript, Node.js, Express) with enterprise experience and an AI-assisted way of working." />
+    <meta name="twitter:image" content="https://mazsola739.github.io/rika-cv/og-image.jpg" />
+    <!-- The same pro CV as static, plain HTML (made at deploy time by scripts/pdf.mjs): readable without JavaScript. -->
+    <link rel="alternate" type="text/html" hreflang="en" href="./cv/text-en.html" title="Erika Rostás – CV (plain text)" />
+    <link rel="alternate" type="text/html" hreflang="hu" href="./cv/text-hu.html" title="Rostás Erika – önéletrajz (egyszerű szöveg)" />
     <meta name="theme-color" content="#efefef" />
     <!-- Light only: keeps browsers with a forced dark mode for websites (e.g. Samsung Internet) from recolouring the CV. -->
     <meta name="color-scheme" content="only light" />
-    <title>Erika Rostás – Full-stack Developer</title>
+    <title>Erika Rostás – Full-stack Developer | AI-Assisted Software Engineering</title>
     <script>
       // Pick the version before first paint so there is no flash of the wrong one.
       // A visit starts in pro, in English. The link can ask for another one (?mode=fun, ?lang=hu), and a reload keeps
@@ -28,6 +49,10 @@
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <p>This CV is a small React app. Without JavaScript, read the plain version:
+        <a href="./cv/text-en.html">English</a> · <a href="./cv/text-hu.html">magyar</a>.</p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

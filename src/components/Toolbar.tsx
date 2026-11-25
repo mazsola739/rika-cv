@@ -3,7 +3,7 @@ import type { Lang, Mode } from '../data/types'
 import type { Point } from '../hooks/useMode'
 import { useText } from '../i18n/context'
 import { ui } from '../i18n/ui'
-import { BriefcaseIcon, DownloadIcon } from './icons'
+import { BriefcaseIcon, DownloadIcon, FileTextIcon } from './icons'
 
 interface ToolbarProps {
   mode: Mode
@@ -17,6 +17,8 @@ interface ToolbarProps {
  * Not there in `bun dev` – run `bun run build && bun run pdf`, then `bun run preview`.
  */
 const pdfName = (mode: Mode, lang: Lang) => `Erika-Rostas-CV-${mode}-${lang}.pdf`
+/** The plain-text, one-column pro CV of a language (PlainCv.tsx), printed by the same script. */
+const textPdfName = (lang: Lang) => `Erika-Rostas-CV-text-${lang}.pdf`
 
 const pill =
   'flex h-11 cursor-pointer items-center rounded-full bg-white/90 text-xs font-semibold tracking-wider uppercase shadow-lg ring-1 ring-black/10 backdrop-blur transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 fun:focus-visible:outline-uni-hotpink'
@@ -58,6 +60,19 @@ export function Toolbar({ mode, lang, onToggleMode, onToggleLang }: ToolbarProps
         <DownloadIcon className="size-4" />
         <span aria-hidden className="hidden sm:inline">
           {t.pdf}
+        </span>
+      </a>
+
+      <a
+        href={`${import.meta.env.BASE_URL}cv/${textPdfName(lang)}`}
+        download={textPdfName(lang)}
+        title={t.textPdfTitle}
+        aria-label={t.textPdfTitle}
+        className={`${pill} gap-1.5 px-3.5 text-neutral-900`}
+      >
+        <FileTextIcon className="size-4" />
+        <span aria-hidden className="hidden sm:inline">
+          {t.textPdf}
         </span>
       </a>
 

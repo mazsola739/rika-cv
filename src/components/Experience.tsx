@@ -38,14 +38,31 @@ function JobEntry({ job }: { job: Job }) {
           <BulletList items={job.achievements} />
         </>
       )}
+
+      {job.links && (
+        <ul className="flex flex-wrap gap-x-5 gap-y-1 pt-1 text-sm">
+          {job.links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold underline underline-offset-4 hover:decoration-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </article>
   )
 }
 
-export function ExperienceSection({ jobs }: { jobs: Job[] }) {
+export function ExperienceSection({ jobs, other = false }: { jobs: Job[]; other?: boolean }) {
   const titles = useSectionTitles()
   return (
-    <Section title={titles.experience}>
+    <Section title={other ? titles.otherExperience : titles.experience}>
       <div className="space-y-6">
         {/* Index keys: the entries stay mounted when the language changes, so they don't animate in again. */}
         {jobs.map((job, index) => (
@@ -56,7 +73,7 @@ export function ExperienceSection({ jobs }: { jobs: Job[] }) {
   )
 }
 
-/** Hobby projects – same layout as a job (name, kind, period, role, description, bullets). */
+/** Own projects – same layout as a job (name, kind, period, role, description, bullets). */
 export function ProjectsSection({ projects }: { projects: Job[] }) {
   const titles = useSectionTitles()
   return (

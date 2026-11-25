@@ -94,13 +94,33 @@ export default function App() {
               {(version, l) => <Header cv={cvs[version][l]} />}
             </VersionSlot>
             {/* lg:mt-14 (3.5rem): the header band ends at the work experience title's midline (bands.ts) */}
+            {/*
+              Pro: the own projects first (the board game is the main portfolio piece), then the development work, then
+              the other jobs in a section of their own. Fun: all the jobs, then the projects. Each section only shows in
+              the version it belongs to.
+            */}
             <div className="order-4 flex flex-col gap-8 lg:order-none lg:mt-14">
+              {mode === 'pro' && (
+                <VersionSlot mode={mode} lang={lang} stacked={false}>
+                  {(version, l) => version === 'pro' && <ProjectsSection projects={cvs[version][l].projects} />}
+                </VersionSlot>
+              )}
               <VersionSlot mode={mode} lang={lang} stacked={false}>
                 {(version, l) => <ExperienceSection jobs={cvs[version][l].experience} />}
               </VersionSlot>
-              <VersionSlot mode={mode} lang={lang} stacked={false}>
-                {(version, l) => <ProjectsSection projects={cvs[version][l].projects} />}
-              </VersionSlot>
+              {mode === 'pro' && (
+                <VersionSlot mode={mode} lang={lang} stacked={false}>
+                  {(version, l) => {
+                    const other = cvs[version][l].otherExperience
+                    return version === 'pro' && other && <ExperienceSection jobs={other} other />
+                  }}
+                </VersionSlot>
+              )}
+              {mode === 'fun' && (
+                <VersionSlot mode={mode} lang={lang} stacked={false}>
+                  {(version, l) => version === 'fun' && <ProjectsSection projects={cvs[version][l].projects} />}
+                </VersionSlot>
+              )}
               <VersionSlot mode={mode} lang={lang} stacked={false}>
                 {(version, l) => <EducationSection items={cvs[version][l].education} />}
               </VersionSlot>
@@ -114,7 +134,7 @@ export default function App() {
             className={`cv-footer order-5 lg:col-span-2 lg:mt-16 lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-x-(--gx) ${footerBand}`}
           >
             <VersionSlot mode={mode} lang={lang} className="lg:col-start-2 lg:row-start-1">
-              {(version, l) => <SkillsSection skills={cvs[version][l].skills} />}
+              {(version, l) => <SkillsSection skills={cvs[version][l].skills} groups={cvs[version][l].skillGroups} />}
             </VersionSlot>
             <VersionSlot mode={mode} lang={lang} className="mt-8 lg:col-start-1 lg:row-start-1 lg:mt-0">
               {(version, l) => (

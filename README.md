@@ -26,7 +26,7 @@ bun dev          # dev server on http://localhost:2739
 bun run build    # type-check + production build into dist/
 bun run preview  # serve the production build
 bun run lint     # oxlint
-bun run pdf      # after a build: print the four PDFs into dist/cv/ (headless Chrome via Playwright)
+bun run pdf      # after a build: print the six PDFs and the static text HTML into dist/cv/ (headless Chrome via Playwright)
 ```
 
 ## The PDFs
@@ -36,6 +36,33 @@ The four PDFs are made at deploy time by `scripts/pdf.mjs`: headless Chromium (P
 A4 pages – the desktop layout, 1180 px wide, scaled to the paper's width, with vector text and without the switches.
 The print rules in `src/index.css` keep blocks whole, give the pages after the first a little room at the top, and put
 the footer at the bottom of the last page. Locally the script uses the installed Chrome or Edge.
+
+### The plain-text CV
+
+Next to the designed PDFs there is a plain version of the pro CV, made from the same data (`src/components/PlainCv.tsx`,
+opened with `?view=text&lang=en|hu`): one column, standard section titles (Summary, Skills, Projects, Work Experience,
+Education, Languages), plain fonts, real links, no skill graphics, only the chosen language, and the phone number kept
+private. `scripts/pdf.mjs` prints it to `dist/cv/Erika-Rostas-CV-text-<lang>.pdf` (the toolbar's **Text** button) and
+saves it as static HTML, `dist/cv/text-<lang>.html`, which works without JavaScript – `index.html` links to both
+(`<link rel="alternate">` and a `<noscript>` note). It is meant to be easy for applicant tracking systems to read, but no
+such system is guaranteed to parse it well.
+
+The main page itself is still rendered in the browser, with every version stacked (the hidden ones `inert`); it is not
+prerendered, so crawlers that don't run JavaScript get the static HTML above instead.
+
+## Pro version: content and layout
+
+- The title has two parts, `Full-stack Developer | AI-Assisted Software Engineering`: each part gets its own line.
+- The right column starts with the own projects (the board game, then this CV), followed by the development work and,
+  in a section of its own, the other jobs (`otherExperience`). The fun version keeps one list of jobs, then the projects.
+- Project links (`links` on a job) are real, public pages: the board game's showcase, this repository and the site.
+- Skills are groups without percentages (`skillGroups`); the fun version keeps its playful rings.
+
+## Link previews
+
+`index.html` has a description, a canonical URL, Open Graph and Twitter Card tags with absolute URLs (the site lives
+under `/rika-cv/`) and a preview image, `public/og-image.jpg` (1200 × 630, made from the pro photo). The tags are static,
+so every shared link previews the English pro CV.
 
 ## How the switch works
 
@@ -108,3 +135,4 @@ any sub-path (here `/rika-cv/`).
 
 The code is under the [MIT License](LICENSE). The content of the CV (texts and photo) is mine and not covered by it: all rights reserved.
 The stickers (the flowers and the butterflies, `src/assets/stickers/`) were made with AI and are not covered by it either.
+The preview image (`public/og-image.jpg`) shows the photo, so it is not covered by it either.

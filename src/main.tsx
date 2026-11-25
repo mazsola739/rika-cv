@@ -11,9 +11,12 @@ import '@fontsource/comic-relief/latin-ext-400.css'
 
 import './index.css'
 import App from './App.tsx'
+import { PlainCv } from './components/PlainCv.tsx'
+
+// ?view=text: the plain, one-column pro CV (for the text PDFs and the static HTML, see scripts/pdf.mjs).
+const params = new URLSearchParams(window.location.search)
+const plain = params.get('view') === 'text'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <StrictMode>{plain ? <PlainCv lang={params.get('lang') === 'hu' ? 'hu' : 'en'} /> : <App />}</StrictMode>,
 )

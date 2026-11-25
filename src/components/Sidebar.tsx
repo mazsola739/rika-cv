@@ -78,11 +78,13 @@ export function HelpersSection({ helpers }: { helpers: NonNullable<Cv['helpers']
     <Section title={helpers.title}>
       <figure ref={reveal} data-reveal="up" className="space-y-4">
         {helpers.photo && (
+          // The frame takes the colour of its height on the page (page ombre), like the title pills around it.
           <img
             src={helpers.photo}
             alt={helpers.alt}
             loading="lazy"
-            className="mx-auto aspect-3/4 w-full max-w-72 rounded-2xl border-4 border-white object-cover shadow-lg"
+            data-ombre
+            className="mx-auto aspect-3/4 w-full max-w-72 rounded-2xl border-4 border-(--ombre-color) object-cover shadow-lg"
           />
         )}
         {/* starts where the flower bullets of the lists above start (list padding 2rem, flower 1.45em to its left) */}

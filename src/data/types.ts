@@ -29,6 +29,19 @@ export interface Job {
   project?: string[]
   /** "Key Achievements and Responsibilities" bullets. */
   achievements?: string[]
+  /** Real, public links (demo, repository), shown under the bullets. */
+  links?: Link[]
+}
+
+export interface Link {
+  label: string
+  href: string
+}
+
+/** A group of related skills, without levels (the pro version's skills summary). */
+export interface SkillGroup {
+  label: string
+  items: string[]
 }
 
 export interface Education {
@@ -55,10 +68,15 @@ export interface Cv {
   expertise: string[]
   languages: string[]
   experience: Job[]
-  /** Hobby projects, laid out like jobs (`company` = project, `location` = kind of project). */
+  /** Pro version: work outside software development, in its own section after the development experience. */
+  otherExperience?: Job[]
+  /** Own projects, laid out like jobs (`company` = project, `location` = kind of project). */
   projects: Job[]
   education: Education[]
+  /** Skill rings with a playful percentage (fun version). */
   skills: Skill[]
+  /** Skill groups without percentages (pro version); shown instead of the rings when present. */
+  skillGroups?: SkillGroup[]
   /** Fun version: the cats of the code review board, under the languages (no photo yet: caption only). */
   helpers?: { title: string; photo?: string; alt: string; caption: string }
   /** "Contact me" in the footer: a short line and a button that starts an e-mail (with this subject). */

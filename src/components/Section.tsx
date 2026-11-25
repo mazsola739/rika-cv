@@ -18,11 +18,12 @@ export function Section({ title, children, className = '' }: SectionProps) {
   return (
     // data-reveal="section": the title bar grows out of its middle when the section scrolls into view.
     // The pill is 2.75rem high in both versions (--title-half in index.css), so everything lines up when switching.
+    // A long title may wrap on a phone: balanced lines, a little room above and below.
     <section ref={reveal} data-reveal="section" aria-labelledby={id} className={className}>
       <h2
         id={id}
         data-ombre
-        className="relative mb-5 flex min-h-11 items-center justify-center rounded-full bg-(--ombre-color) pl-[0.32em] text-center font-heading text-[0.95rem] font-medium tracking-[0.32em] text-page uppercase fun:text-lg fun:font-bold fun:text-white"
+        className="relative mb-5 flex min-h-11 items-center justify-center rounded-full bg-(--ombre-color) py-1.5 pl-[0.32em] text-center leading-tight text-balance font-heading text-[0.95rem] font-medium tracking-[0.32em] text-page uppercase fun:text-lg fun:font-bold fun:text-white"
       >
         <TitleBlooms />
         {title}

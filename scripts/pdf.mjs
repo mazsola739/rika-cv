@@ -3,6 +3,10 @@
  * A4 pages – the desktop layout (1180 CSS px wide) scaled to the paper's width, vector text, no switches.
  * Written to dist/cv/Erika-Rostas-CV-<mode>-<lang>.pdf, which the PDF button of the toolbar links to (Toolbar.tsx).
  *
+ * Then the plain-text pro CV (`?view=text`, PlainCv.tsx) in both languages: one column, standard section titles, real
+ * links, no graphics – as dist/cv/Erika-Rostas-CV-text-<lang>.pdf (the toolbar's Text button) and as static HTML,
+ * dist/cv/text-<lang>.html, which works without JavaScript.
+ *
  * Usage (after `bun run build`): bun run pdf
  * Uses Playwright's own Chromium when it is installed (CI: `bunx playwright install chromium`), otherwise the Chrome
  * or Edge installed on the computer.
@@ -120,6 +124,26 @@ try {
     const file = join(OUT, `Erika-Rostas-CV-${mode}-${lang}.pdf`)
     writeFileSync(file, pdf)
     console.log(`${file}: ${pages} pages, ${Math.round(pdf.length / 1024)} KB${pdf === plain ? ' (footer left in place)' : ''}`)
+    await page.close()
+  }
+
+  for (const lang of ['en', 'hu']) {
+    const page = await browser.newPage({ viewport: { width: 900, height: 1200 } })
+    await page.goto(`http://127.0.0.1:${port}/?view=text&lang=${lang}`, { waitUntil: 'networkidle' })
+    await page.emulateMedia({ media: 'print' })
+    await settle(page)
+    const pdf = await page.pdf({ format: 'A4', margin: { top: '16mm', bottom: '16mm', left: '16mm', right: '16mm' } })
+    const file = join(OUT, `Erika-Rostas-CV-text-${lang}.pdf`)
+    writeFileSync(file, pdf)
+    console.log(`${file}: ${countPages(pdf)} pages, ${Math.round(pdf.length / 1024)} KB`)
+
+    // The same page as static HTML: no scripts and no app stylesheet (the plain CV brings its own styles).
+    const html = (await page.content())
+      .replace(/<script\b[\s\S]*?<\/script>/g, '')
+      .replace(/<link\b[^>]*rel="(?:stylesheet|modulepreload)"[^>]*>/g, '')
+      .replace('href="./favicon.svg"', 'href="../favicon.svg"')
+      .replace(/<div id="root">/, '<div>')
+    writeFileSync(join(OUT, `text-${lang}.html`), `<!doctype html>\n${html.replace(/^<!DOCTYPE html>/i, '')}`)
     await page.close()
   }
 } finally {

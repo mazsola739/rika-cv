@@ -5,9 +5,10 @@ export const contact: Contact = { ...contactBase, location: '6800 Hódmezővás�
 
 export const languages = ['English (B2)', 'Hungarian (native)']
 
-/** Hobby projects: `company` is the project, `location` the kind of project. */
+/** Own projects: `company` is the project, `location` the kind of project. */
 export const projects = {
-  boardGame: { company: 'Online board game', location: 'Hobby project', period: '2023 - 2026', role: 'Solo full-stack developer' },
+  boardGame: { company: 'Online multiplayer board game', location: 'Independent full-stack project', period: '2023 - Present', role: 'Full-stack developer' },
+  cvApp: { company: 'CV web app', location: 'Independent project', period: '2026', role: 'Front-end developer' },
 } satisfies Record<string, JobMeta>
 
 export const jobs = {

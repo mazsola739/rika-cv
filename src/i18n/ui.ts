@@ -6,6 +6,7 @@ export interface SectionTitles {
   expertise: string
   languages: string
   experience: string
+  otherExperience: string
   projects: string
   education: string
   skills: string
@@ -24,6 +25,9 @@ export interface UiText extends SectionTitles {
 
   pdf: string
   pdfTitle: string
+  /** The plain-text, one-column pro CV as a PDF (scripts/pdf.mjs). */
+  textPdf: string
+  textPdfTitle: string
   modeSwitch: string
   toPro: string
   toFun: string
@@ -38,6 +42,7 @@ export interface UiText extends SectionTitles {
   expertise: string
   languages: string
   experience: string
+  otherExperience: string
   projectDescription: string
   achievements: string
   projects: string
@@ -63,12 +68,14 @@ export const ui = {
     languageName: 'English',
     switchToLanguage: 'Switch to English',
     documentTitle: {
-      pro: 'Erika Rostás – Full-stack Developer',
+      pro: 'Erika Rostás – Full-stack Developer | AI-Assisted Software Engineering',
       fun: 'Erika “Rika” Rostás – Full-stack Unicorn 🦄',
     },
 
     pdf: 'PDF',
     pdfTitle: 'Download this CV as a PDF',
+    textPdf: 'Text',
+    textPdfTitle: 'Download the plain-text, one-column CV as a PDF',
     modeSwitch: 'Fun version of the CV',
     toPro: 'Switch to the professional CV',
     toFun: 'Switch to the fun CV',
@@ -81,12 +88,13 @@ export const ui = {
     linkedin: 'LinkedIn',
     expertise: 'Expertise',
     languages: 'Language',
-    experience: 'Work Experience',
+    experience: 'Development Work',
+    otherExperience: 'Other Work Experience',
     projectDescription: 'Project Description:',
     achievements: 'Key Achievements and Responsibilities:',
     projects: 'Projects',
     education: 'Education',
-    skills: 'Skills Summary',
+    skills: 'Skills',
     form: {
       name: 'Name',
       email: 'E-mail',
@@ -103,6 +111,7 @@ export const ui = {
       expertise: 'Superpowers',
       languages: 'Snack lingo',
       experience: 'Things I passed off as work',
+      otherExperience: 'Things I passed off as work',
       projects: 'What I do for free',
       education: 'Padawan years',
       skills: 'Battery levels',
@@ -112,12 +121,14 @@ export const ui = {
     languageName: 'Magyar',
     switchToLanguage: 'Váltás magyar nyelvre',
     documentTitle: {
-      pro: 'Rostás Erika – Full-stack fejlesztő',
+      pro: 'Rostás Erika – Full-stack fejlesztő | AI-asszisztált szoftverfejlesztés',
       fun: 'Rostás „Rika” Erika – Full-stack unikornis 🦄',
     },
 
     pdf: 'PDF',
     pdfTitle: 'Ez az önéletrajz PDF-ben',
+    textPdf: 'Szöveges',
+    textPdfTitle: 'Az egyszerű, egyoszlopos szöveges önéletrajz PDF-ben',
     modeSwitch: 'Az önéletrajz vicces változata',
     toPro: 'Váltás a szakmai önéletrajzra',
     toFun: 'Váltás a vicces önéletrajzra',
@@ -130,7 +141,8 @@ export const ui = {
     linkedin: 'LinkedIn',
     expertise: 'Szakértelem',
     languages: 'Nyelvtudás',
-    experience: 'Szakmai tapasztalat',
+    experience: 'Fejlesztői tapasztalat',
+    otherExperience: 'Egyéb munkák',
     projectDescription: 'Projektleírás:',
     achievements: 'Főbb eredmények és feladatok:',
     projects: 'Projektek',
@@ -152,6 +164,7 @@ export const ui = {
       expertise: 'Szupererők',
       languages: 'Kajanyelvek',
       experience: 'Amit munkának tettettem',
+      otherExperience: 'Amit munkának tettettem',
       projects: 'Amit ingyen is csinálok',
       education: 'Padawan-évek',
       skills: 'Töltöttség',
