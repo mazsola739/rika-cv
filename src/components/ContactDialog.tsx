@@ -62,7 +62,7 @@ export function ContactDialog({ ref, lang, cta }: ContactDialogProps) {
       ref={ref}
       lang={lang}
       aria-labelledby={`${id}-title`}
-      className="m-auto max-h-[calc(100dvh-2rem)] w-[min(100%-2rem,30rem)] overflow-y-auto rounded-3xl bg-page font-body text-[0.9375rem] text-ink shadow-2xl backdrop:bg-black/55 backdrop:backdrop-blur-sm fun:text-[0.875rem]"
+      className="m-auto max-h-[calc(100dvh-2rem)] w-[min(100%-2rem,30rem)] overflow-y-auto rounded-3xl bg-page font-body text-[0.9375rem] text-ink shadow-2xl backdrop:bg-black/55 backdrop:backdrop-blur-sm fun:text-[0.8125rem]"
       onClick={(event) => {
         // A click on the dimmed page around the window (the <dialog> itself, not its content) closes it.
         if (event.target === event.currentTarget) event.currentTarget.close()

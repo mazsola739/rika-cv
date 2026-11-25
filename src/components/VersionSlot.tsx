@@ -42,7 +42,7 @@ export function VersionSlot({ mode, lang, children, className = '', reveal: reve
                   data-version={version}
                   lang={copyLang}
                   inert={!isActive}
-                  className={`col-start-1 row-start-1 min-w-0 font-body text-[0.9375rem] text-ink fun:text-[0.875rem] ${hidden}`}
+                  className={`col-start-1 row-start-1 min-w-0 font-body text-[0.9375rem] text-ink fun:text-[0.8125rem] ${hidden}`}
                 >
                   {children(version, copyLang)}
                 </div>

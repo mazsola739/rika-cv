@@ -1,5 +1,5 @@
 import { catsPhoto, photos } from '../shared'
-import { contact, jobs, languages, projects } from './common'
+import { contact, jobs, projects } from './common'
 import type { Cv } from '../types'
 
 export const funEn: Cv = {
@@ -26,12 +26,12 @@ export const funEn: Cv = {
     'Board games, online and off (conflict resolution)',
     'Shower singing (closed beta)',
     'Coffee → code (experimental technology)',
-    'Claude-ing: human + AI, not AI instead of human',
+    'Claude-ing',
     'DIY, recycling and refactoring',
-    'Unicorn (native support)',
+    'Bug hunting (mostly in my own code)',
   ],
-  languages,
-  // no company names in the fun version – playful ones instead; same sections, order and points as the pro version
+  languages: ['English (B2)', 'Hungarian (native)', 'Dothraki (basic)', 'Gibberish (fluent)', 'Lorem ipsum (native speaker)'],
+  // no company names in the fun version – playful ones instead; same sections and order as the pro version, but no tech details
   experience: [
     {
       ...jobs.epamProject,
@@ -41,11 +41,10 @@ export const funEn: Cv = {
       role: 'Coffee-to-Code Converter',
       intro: "I worked on a bank's internal app, in a foreign client's team. I used to handle a bank's cash; this time I was handling its state.",
       highlights: [
-        "In a team of four front-end and one full-stack developer I wrote React and TypeScript components, from simple to 'who wrote this?' (git blame: me).",
-        'I helped dust off the front-end tooling – the old build had been configured by dinosaurs.',
-        "Code reviews, refactoring, bug fixing – where I learned that the two most optimistic words in a sprint are 'tiny change'.",
-        "Scrum, pair programming and client meetings: I learned to say 'almost done' in English too.",
-        'Props: React, TypeScript, SQL Server, Azure DevOps, Jira, Confluence.',
+        "I wrote components, from simple to 'who wrote this?' (git blame: me).",
+        'I helped dust off the old tooling – the build had been configured by dinosaurs.',
+        "I learned that the two most optimistic words in a sprint are 'tiny change'.",
+        "And how to say 'almost done' with a straight face.",
       ],
     },
     {
@@ -53,15 +52,12 @@ export const funEn: Cv = {
       company: 'Same place, still in beta',
       location: 'Still sunny Szeged',
       period: 'Junior era',
-      role: 'Junior Bug Hunter',
-      intro:
-        "I worked on a construction company's customer-facing mobile app: other people built houses, I built components – in headphones instead of a hard hat.",
+      role: 'Junior Lumberjack',
+      intro: "I worked on a construction company's mobile app: other people built houses, I built components – in headphones instead of a hard hat.",
       highlights: [
-        'As the junior of a four-person front-end team I designed and built UI components, under the eyes of a lead and two seniors.',
+        'They brought the logs, I chopped them: component after component, while the seniors made the big calls.',
         "I wrote unit tests, because 'works on my machine' doesn't count as a handover.",
         'I showed new teammates where the front door was, where the coffee was and where the docs were – in that order.',
-        'Scrum, pair programming and client meetings.',
-        'Toolbox: Oracle DB, Azure DevOps, Confluence, BrowserStack.',
       ],
     },
   ],
@@ -73,7 +69,10 @@ export const funEn: Cv = {
       role: 'Money Dealer',
       intro:
         'Turns out money can be refactored too: one big note goes in, a handful of small ones come out, zero bugs. By day I exchange currencies; by night I switch modes.',
-      highlights: ['I exchange currency and handle cash for customers – the rates update live, just like a WebSocket.'],
+      highlights: [
+        "I'm the merchant NPC at the city gate: bring your euros, leave with forints – no haggling.",
+        'Adventurers arrive from every corner of the map, but the resource trade at my counter is always balanced.',
+      ],
     },
     {
       ...jobs.bank,
@@ -82,8 +81,8 @@ export const funEn: Cv = {
       role: 'Chief Treasurer',
       intro: 'The vault key was my first access token: physical, non-expiring, and definitely not something I wanted to lose.',
       highlights: [
-        'I guarded the vault and the cash reserves – with me, closing time meant all tests green.',
-        'I ran the daily cash flow: production environment, no rollback.',
+        "As the guild's treasurer I took in all the loot, counted it and locked it away – by evening the inventory always added up.",
+        'Daily quest: gold in, gold out, and not a single coin may vanish from the chest.',
         'I fed the ATMs the way other people feed their cats: on time, every single day – and not once did they say thank you.',
       ],
     },
@@ -96,12 +95,12 @@ export const funEn: Cv = {
       period: 'To be continued',
       role: 'CEO, intern and cleaner in one',
       intro:
-        "Since 2023 I've been building an online social deduction board game on my own. The players have to work out whom they can trust; I have to work out which WebSocket message to trust.",
+        "Since 2023 I've been building an online social deduction board game. The players have to work out whom they can trust; I have to work out which WebSocket message to trust.",
       highlights: [
-        'Features: a real-time lobby and game rooms, an English and Hungarian narrator for the night phase, voice chat and saved game data – suspicion is now peer-to-peer.',
-        '2023–2024, by hand: React and MobX up front, Node.js and Express in the back, WebSocket in between.',
-        'Since 2025 with Copilot, then Claude: TypeScript, DynamoDB, a back end rewritten in Rust and WebRTC voice chat. It types faster; I make the calls.',
-        'Quality: Vitest, Testing Library, multiplayer Playwright tests, Storybook and GitHub Actions, over 2,400 commits. On weekends my friends test the game; on weekdays the bugs test me.',
+        'I laid the foundations by hand; these days Claude helps out: it types faster, I make the calls.',
+        "There's voice chat too, so suspicion is now peer-to-peer.",
+        "Over 2,400 commits – and every one of them was 'the final touch'.",
+        'On weekends my friends test the game; on weekdays the bugs test me.',
       ],
     },
   ],

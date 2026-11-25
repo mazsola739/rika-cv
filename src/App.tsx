@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <LangContext value={lang}>
-      <div className="min-h-dvh overflow-x-clip bg-page font-body text-[0.9375rem] text-ink antialiased fun:text-[0.875rem]">
+      <div className="min-h-dvh overflow-x-clip bg-page font-body text-[0.9375rem] text-ink antialiased fun:text-[0.8125rem]">
         <Toolbar mode={mode} lang={lang} onToggleMode={toggleMode} onToggleLang={toggleLang} />
 
         {/*
@@ -75,7 +75,8 @@ export default function App() {
               <VersionSlot mode={mode} lang={lang} stacked={false}>
                 {(version, l) => <ListSection titleKey="expertise" items={cvs[version][l].expertise} />}
               </VersionSlot>
-              <VersionSlot mode={mode} lang={lang}>
+              {/* Not stacked either: the fun version lists a few made-up languages too. */}
+              <VersionSlot mode={mode} lang={lang} stacked={false}>
                 {(version, l) => <ListSection titleKey="languages" items={cvs[version][l].languages} />}
               </VersionSlot>
               {/* Fun only, at the bottom of the left column: nothing else moves, so pro and fun still line up. */}

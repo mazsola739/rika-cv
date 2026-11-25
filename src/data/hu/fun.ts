@@ -1,5 +1,5 @@
 import { catsPhoto, photos } from '../shared'
-import { contact, jobs, languages, projects } from './common'
+import { contact, jobs, projects } from './common'
 import type { Cv } from '../types'
 
 export const funHu: Cv = {
@@ -26,12 +26,12 @@ export const funHu: Cv = {
     'Társasozás on- és offline (konfliktuskezelés)',
     'Éneklés a zuhany alatt (zárt béta)',
     'Kávé → kód (kísérleti technológia)',
-    'Claude-olás: ember + AI, nem ember helyett AI',
+    'Claude-olás',
     'Barkácsolás, újrahasznosítás, refaktorálás',
-    'Unikornis (natív támogatás)',
+    'Bugkeresés (főleg a sajátjaimban)',
   ],
-  languages,
-  // no company names in the fun version – playful ones instead; same sections, order and points as the pro version
+  languages: ['Angol (B2)', 'Magyar (anyanyelv)', 'Dothraki (alapfok)', 'Halandzsa (folyékony)', 'Lorem ipsum (anyanyelvi szint)'],
+  // no company names in the fun version – playful ones instead; same sections and order as the pro version, but no tech details
   experience: [
     {
       ...jobs.epamProject,
@@ -41,11 +41,10 @@ export const funHu: Cv = {
       role: 'Kávé-kód átalakító',
       intro: 'Egy bank belső alkalmazásán dolgoztam, egy külföldi ügyfél csapatában. Korábban egy bank készpénzét kezeltem, itt már a state-jét.',
       highlights: [
-        'Négy front-endes és egy full-stackes csapatban írtam React- és TypeScript-komponenseket, az egyszerűtől a „ki írta ezt?”-ig (git blame: én).',
-        'Segítettem leporolni a front-end eszközkészletet – a régi buildet még a dinoszauruszok konfigurálták.',
-        'Code review, refaktorálás, hibajavítás – itt tanultam meg, hogy a sprint két legoptimistább szava: „kis módosítás”.',
-        'Scrum, pair programming és ügyféltalálkozók: megtanultam angolul is azt mondani, hogy „majdnem kész”.',
-        'Kellékek: React, TypeScript, SQL Server, Azure DevOps, Jira, Confluence.',
+        'Komponenseket írtam, az egyszerűtől a „ki írta ezt?”-ig (git blame: én).',
+        'Segítettem leporolni a régi eszközöket – a buildet még a dinoszauruszok konfigurálták.',
+        'Megtanultam, hogy a sprint két legoptimistább szava: „kis módosítás”.',
+        'És azt is, hogyan kell angolul mondani, hogy „majdnem kész”.',
       ],
     },
     {
@@ -53,14 +52,12 @@ export const funHu: Cv = {
       company: 'Ugyanott, csak zöldfülűként',
       location: 'Még mindig Szeged',
       period: 'A juniorévek',
-      role: 'Junior bugvadász',
-      intro: 'Egy építőipari cég ügyfeleinek szóló mobilappon dolgoztam: mások házakat, én komponenseket építettem – sisak helyett fejhallgatóban.',
+      role: 'Junior favágó',
+      intro: 'Egy építőipari cég mobilappján dolgoztam: mások házakat, én komponenseket építettem – sisak helyett fejhallgatóban.',
       highlights: [
-        'Egy négyfős front-end csapat juniorjaként terveztem és építettem UI-komponenseket, egy vezető és két senior szeme előtt.',
+        'Kaptam a fát, vágtam a fát: komponenst komponens után, amíg a seniorok a nagy döntéseket hozták.',
         'Unit teszteket írtam, mert a „nálam működik” nem számít műszaki átadásnak.',
         'Az új csapattagoknak megmutattam, hol a bejárat, hol a kávé és hol a dokumentáció – ebben a sorrendben.',
-        'Scrum, pair programming és ügyféltalálkozók, angolul.',
-        'Szerszámosláda: Oracle DB, Azure DevOps, Confluence, BrowserStack.',
       ],
     },
   ],
@@ -72,7 +69,10 @@ export const funHu: Cv = {
       role: 'Pénzdíler',
       intro:
         'Kiderült, hogy a pénzt is lehet refaktorálni: egy ötezresből két kétezres és egy ezres lesz, bug nélkül. Nappal valutát váltok, este üzemmódot.',
-      highlights: ['Valutát váltok és készpénzt kezelek az ügyfeleknek – az árfolyam élőben frissül, akár egy WebSocket.'],
+      highlights: [
+        'Én vagyok a kereskedő NPC a város kapujában: hozod az eurót, viszed a forintot – alkudni nem lehet.',
+        'A kalandozók a világ minden tájáról érkeznek, de a resource-csere nálam mindig balanszolt.',
+      ],
     },
     {
       ...jobs.bank,
@@ -81,8 +81,8 @@ export const funHu: Cv = {
       role: 'Főkincstárnok',
       intro: 'A széf kulcsa volt az első access tokenem: kézzelfogható, nem jár le, és nagyon nem akartam elveszíteni.',
       highlights: [
-        'Én vigyáztam az értéktárra és a pénzkészletre – a zárás nálam zöld tesztet jelentett.',
-        'Bonyolítottam a napi készpénzforgalmat: éles környezet, rollback nélkül.',
+        'A céh kincstárnokaként minden lootot átvettem, megszámoltam és elzártam – estére mindig stimmelt az inventory.',
+        'Napi quest: arany be, arany ki, és egyetlen érme sem tűnhetett el a ládából.',
         'Az ATM-eket úgy etettem, ahogy más a cicáit: pontosan, minden nap – és egyszer sem köszönték meg.',
       ],
     },
@@ -95,19 +95,19 @@ export const funHu: Cv = {
       period: 'Folyt. köv.',
       role: 'Főnök, gyakornok és takarító egy személyben',
       intro:
-        '2023 óta egyedül építem egy szociális dedukciós társasjáték online változatát. A játékosoknak azt kell kitalálniuk, kiben bízhatnak – nekem azt, melyik WebSocket-üzenetben.',
+        '2023 óta építem egy szociális dedukciós társasjáték online változatát. A játékosoknak azt kell kitalálniuk, kiben bízhatnak – nekem azt, melyik WebSocket-üzenetben.',
       highlights: [
-        'Tudja: valós idejű lobby és játékszobák, magyar és angol narrátor az éjszakai fázisban, hangchat és mentett játékadatok – a gyanakvás immár peer-to-peer.',
-        '2023–2024, kézzel: React és MobX elöl, Node.js és Express hátul, WebSocket a kettő között.',
-        '2025 óta előbb Copilottal, majd Claude-dal: TypeScript, DynamoDB, Rustban újraírt backend és WebRTC hangchat. Ő gépel gyorsabban, én döntök.',
-        'Minőség: Vitest, Testing Library, többjátékos Playwright-tesztek, Storybook és GitHub Actions, több mint 2400 commit. Hétvégén a barátaim tesztelik a játékot, hétköznap a bugok tesztelnek engem.',
+        'Az alapokat még kézzel raktam le, ma már Claude is besegít: ő gépel gyorsabban, én döntök.',
+        'Hangchat is van benne, úgyhogy a gyanakvás immár peer-to-peer.',
+        'Több mint 2400 commit – és mindegyik „utolsó simítás” volt.',
+        'Hétvégén a barátaim tesztelik a játékot, hétköznap a bugok tesztelnek engem.',
       ],
     },
   ],
   education: [
     {
       story:
-        'A gimiben a matek, a fizika és az informatika volt a kedvenc trióm – a teljes kocka kezdőcsomag. Akkor még a radír volt a Ctrl+Z.',
+        'A gimiben a matek, a fizika és a számtek volt a kedvenc trióm – a teljes kocka kezdőcsomag. Akkor még a radír volt a Ctrl+Z.',
     },
   ],
   skills: [
