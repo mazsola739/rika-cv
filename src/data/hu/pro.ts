@@ -10,7 +10,7 @@ export const proHu: Cv = {
   photo: { src: photos.pro, alt: 'Rostás Erika portréja: mosolyog, rózsaszín blézert visel' },
   contact: { ...contact, phoneNote: 'Csak engedéllyel látható' },
   expertise: [
-    'AI-asszisztált fejlesztés (GitHub Copilot, Claude, ChatGPT)',
+    'AI-asszisztált fejlesztés (Claude, GitHub Copilot, ChatGPT)',
     'Frontend: React, TypeScript, JavaScript, MobX, Redux, HTML, CSS, Tailwind CSS, Vite',
     'Backend: Node.js, Express, REST API, WebSocket, DynamoDB, Rust (Axum)',
     'Tesztelés és kódminőség: Jest, Vitest, Testing Library, Playwright, GitHub Actions',
@@ -72,14 +72,14 @@ export const proHu: Cv = {
     },
   ],
   skills: [
-    { label: 'AI (Copilot, Claude, ChatGPT)', value: 75 },
+    { label: 'AI (Claude, Copilot, ChatGPT)', value: 75 },
     { label: 'FE (HTML, JS / TS, CSS)', value: 90 },
     { label: 'BE (Node.js, Express)', value: 50 },
     { label: 'React (Redux, MobX)', value: 65 },
     { label: 'Tesztírás (Jest, Vitest)', value: 40 },
   ],
   skillGroups: [
-    { label: 'AI-asszisztált fejlesztés', items: ['GitHub Copilot', 'Claude', 'ChatGPT'] },
+    { label: 'AI-asszisztált fejlesztés', items: ['Claude', 'GitHub Copilot', 'ChatGPT'] },
     { label: 'Frontend', items: ['React', 'TypeScript', 'JavaScript', 'MobX', 'Redux', 'HTML', 'CSS', 'Tailwind CSS', 'Vite'] },
     { label: 'Backend', items: ['Node.js', 'Express', 'REST API', 'WebSocket', 'DynamoDB', 'Rust (Axum)'] },
     { label: 'Tesztelés és kódminőség', items: ['Jest', 'Vitest', 'Testing Library', 'Playwright', 'GitHub Actions'] },

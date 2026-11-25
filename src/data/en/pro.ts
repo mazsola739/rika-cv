@@ -10,7 +10,7 @@ export const proEn: Cv = {
   photo: { src: photos.pro, alt: 'Portrait of Erika Rostás, smiling, in a pink blazer' },
   contact: { ...contact, phoneNote: 'Available on request' },
   expertise: [
-    'AI-assisted development (GitHub Copilot, Claude, ChatGPT)',
+    'AI-assisted development (Claude, GitHub Copilot, ChatGPT)',
     'Front end: React, TypeScript, JavaScript, MobX, Redux, HTML, CSS, Tailwind CSS, Vite',
     'Back end: Node.js, Express, REST APIs, WebSocket, DynamoDB, Rust (Axum)',
     'Testing and code quality: Jest, Vitest, Testing Library, Playwright, GitHub Actions',
@@ -72,14 +72,14 @@ export const proEn: Cv = {
     },
   ],
   skills: [
-    { label: 'AI (Copilot, Claude, ChatGPT)', value: 75 },
+    { label: 'AI (Claude, Copilot, ChatGPT)', value: 75 },
     { label: 'FE (HTML, JS / TS, CSS)', value: 90 },
     { label: 'BE (Node.js, Express)', value: 50 },
     { label: 'React (Redux, MobX)', value: 65 },
     { label: 'Testing (Jest, Vitest)', value: 40 },
   ],
   skillGroups: [
-    { label: 'AI-assisted development', items: ['GitHub Copilot', 'Claude', 'ChatGPT'] },
+    { label: 'AI-assisted development', items: ['Claude', 'GitHub Copilot', 'ChatGPT'] },
     { label: 'Front end', items: ['React', 'TypeScript', 'JavaScript', 'MobX', 'Redux', 'HTML', 'CSS', 'Tailwind CSS', 'Vite'] },
     { label: 'Back end', items: ['Node.js', 'Express', 'REST APIs', 'WebSocket', 'DynamoDB', 'Rust (Axum)'] },
     { label: 'Testing and code quality', items: ['Jest', 'Vitest', 'Testing Library', 'Playwright', 'GitHub Actions'] },
