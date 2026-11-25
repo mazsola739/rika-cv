@@ -18,7 +18,7 @@ export const proEn: Cv = {
     },
     {
       ...jobs.epamProject,
-      intro: 'Staff augmentation on several enterprise projects: during the war in Ukraine, I stepped in for developers who were unable to work, so that the clients’ business could continue without interruption.',
+      intro: 'Staff augmentation: I worked in the client’s team on a banking application.',
       highlights: [
         'Developed React and TypeScript components of varying complexity in a team of 4 front-end and 1 full-stack developer.',
         'Modernized the front-end tooling to improve the user experience.',

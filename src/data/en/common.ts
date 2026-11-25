@@ -11,7 +11,7 @@ export const projects = {
 } satisfies Record<string, JobMeta>
 
 export const jobs = {
-  exchange: { company: 'Interchange FX', location: '', period: '2023 - Present', role: 'Currency Exchange Cashier' },
+  exchange: { company: 'Interchange FX', location: '', period: '2024 - Present', role: 'Currency Exchange Cashier' },
   epamProject: { company: 'EPAM Systems', location: 'Szeged, Hungary', period: '2023', role: 'Software Engineer' },
   epamJunior: { company: 'EPAM Systems', location: 'Szeged, Hungary', period: '2022 - 2023', role: 'Junior Software Engineer' },
   bank: { company: 'MBH Bank', location: '', period: '2016 - 2021', role: 'Head Cashier' },

@@ -7,7 +7,7 @@ export const funHu: Cv = {
   title: 'Full-stack unikornis',
   tagline: 'Csapatjátékos / Örök tanuló / Internet-(l)user / Szerény-Elszánt-Okos / ENTP',
   summary:
-    '2021-ben front-end unikornisként indultam, 2023 óta full-stack unikornis vagyok. A mindennapi kenyerem: elöl React TypeScripttel, hátul Node.js Expresszel – mostanában pedig a Rusttal is flörtölök. Minden sort a négy macskából – Natasa, Luna, Kira és Sura – álló szigorú code review bizottságom hagy jóvá (jóváhagyás = ráülnek a billentyűzetre). Ha bonyolódik a helyzet, AI-erősítést hívok – előbb a Copilotot, most Claude-ot. Ezt hívom Claude-olásnak.',
+    '2021-ben front-endesként indultam, 2023 óta a teljes stacken dolgozom. A mindennapi kenyerem: elöl React TypeScripttel, hátul Node.js Expresszel – mostanában pedig a Rusttal is flörtölök. Claude a páros programozó társam, a négy cicám – Natasa, Luna, Kira és Sura – pedig a legszigorúbb közönségem.',
   photo: {
     src: photos.fun,
     alt: 'Erika a hátán fekszik, az arcát a kezei mögé rejti, élénkpiros haja szétterül, mellette pixeles szövegbuborék: „I’m a unicorn”',
@@ -35,11 +35,11 @@ export const funHu: Cv = {
   experience: [
     {
       ...jobs.exchange,
-      company: 'Legális pénzdíler',
-      period: '2023 – még mindig számolok',
-      role: 'Pénzzsonglőr',
+      company: 'Forint–Euró Randiiroda',
+      period: '2024 – még mindig számolok',
+      role: 'Pénzdíler',
       intro:
-        'Csavar a történetben: mostanában kávé helyett valutát váltok. Az euró, a dollár és a forint sorban áll a pultomnál, a kassza mindig egyezik – munka után pedig megy tovább a társasjáték-projekt.',
+        'Kiderült, hogy a pénzt is lehet refaktorálni: egy ötezresből két kétezres és egy ezres lesz, bug nélkül. A forint és az euró nálam ismerkedik egymással, én csak az árfolyamot súgom. Esténként visszaváltom magam fejlesztőre – nyugtát még senki nem kért róla.',
     },
     {
       ...jobs.epamProject,
@@ -47,48 +47,36 @@ export const funHu: Cv = {
       location: 'Napfényes Szeged',
       period: '2023 – egy pörgős év',
       role: 'Kávé-kód átalakító',
-      intro: 'Kölcsönfejlesztő (staff augmentation): több nagyvállalati csapatba is beálltam cserejátékosként – beálltam, és ment tovább a meccs.',
-      highlights: [
-        'Aprótól a gigantikusig mindenféle komponenst gyártottam egy 4 front-endesből és 1 full-stack mindenesből álló csapatban.',
-        'Ráncfelvarrást kapott tőlem a front-end eszköztár – jól is állt neki.',
-        'Bugvadászat és refaktorálás, mintha senki se figyelne (a code reviewerek azért figyeltek).',
-        'Olyan szoros határidőket is tartottam, hogy szinte nyikorogtak – és egyetlen kávészünetet sem hagytam ki.',
-        'Stand-upok, sprinttervezések, pair programming duettek és ügyféltalálkozók – mindet túléltem mosollyal és egy bögre kávéval.',
-      ],
+      intro:
+        'Egy évre beköltöztem egy bank kódjába. Itt nem a pénzt számoltam, hanem a pixeleket tologattam, amíg minden gomb pont oda nem került, ahová a designer megálmodta. A bugokat kávéval csalogattam elő, a code review-kon pedig megtanultam, hogy a „csak egy apró változtatás” sosem apró.',
     },
     {
       ...jobs.epamJunior,
-      company: 'Ugyanaz, mint fent',
+      company: 'Ugyanott, csak zöldfülűként',
       location: 'Még mindig Szeged',
       period: '2022 – 2023, a juniorévek',
-      role: 'Főkérdező',
-      intro: 'Zsebre tettük az építkezést: mobilapp az építőiparnak – daru, por és védősisak nélkül.',
-      highlights: [
-        'Egy négytagú front-end banda juniorja voltam: egy vezető fejlesztő, két senior és én – a legtöbb kérdéssel (és a legtöbb cetlivel).',
-        'Unit tesztekkel tartottam rendet a kódban – a kicsit OCD-s énem minden zárójelet kétszer is megszámolt.',
-        'A kávészünet volt a nap legproduktívabb meetingje: ott születtek a legjobb ötletek.',
-        'A határidőket akkor is hoztam, amikor a határidő tegnap volt.',
-        'Később én kalauzoltam az újoncokat – a kérdezőből válaszoló lett.',
-      ],
+      role: 'Hivatásos „ez miért piros?”-kérdező',
+      intro:
+        'Építőipari mobilappot fejlesztettem, vagyis technikailag építkezésen dolgoztam – csak sisak helyett fejhallgatóban. Minden nap megkérdeztem a seniorokat, hogy ez miért piros, és ők minden nap türelmesen elmagyarázták. Mire elfogytak a kérdéseim, már én magyaráztam az újoncoknak, hogy ez miért piros.',
     },
     {
       ...jobs.bank,
       company: 'Fort Knox – magyar fiók',
       period: '2016 – 2021, öt aranyév',
-      role: 'Főkincsőr',
+      role: 'Főkincstáros',
       intro:
-        'A kód előtt jött a kp: főpénztárosként vigyáztam az értéktárra, mozgásban tartottam a napi készpénzforgalmat, és gondoskodtam róla, hogy az ATM-ek soha ne éhezzenek.',
+        'Öt évig a széf kulcsa volt a legjobb barátom. Annyi bankjegy ment át a kezemen, hogy ma már csukott szemmel is megmondom, melyik gyűrött. Az ATM-eket úgy etettem, ahogy más a cicáit: pontosan, minden nap – és egyszer sem köszönték meg.',
     },
   ],
   projects: [
     {
       ...projects.boardGame,
-      company: 'A társasjáték-bébim',
+      company: 'Hálószoba Stúdió Bt.',
       location: 'Éjszakai műszak, ingyen',
       period: '2023 – folyt. köv.',
-      role: 'Egyunikornisos hadsereg',
+      role: 'Főnök, gyakornok és takarító egy személyben',
       intro:
-        'Esti hobbiprojektem: egy szociális dedukciós társasjáték a böngészőben, ahol a barátok éjszaka egy virtuális asztal köré gyűlnek. 2023 és 2024 között minden sort kézzel írtam – elöl React és MobX, hátul Node.js és Express WebSocketekkel. Aztán jöttek az AI-segítők: 2025-ben a Copilot, 2026-ban Claude – velük a kód megtanult TypeScriptül, a szerver Rustban született újra, a játékosok WebRTC-n hangot kaptak, és egy egész halomnyi Vitest- és Playwright-teszt is született. Több mint 2400 commit után a falu még mindig túléli az éjszakát.',
+        'Egy társasjáték, amit éjjel írok, és amit éjjel játszanak: a falu lakói az éjszakát próbálják túlélni, én pedig egy határidőt, amit senki nem szabott ki. Hétvégén a barátaim tesztelik a játékot, hétköznap a bugok tesztelnek engem. Kész lesz valaha? Egyszer. Talán. Addig is: még egy commit.',
     },
   ],
   education: [
@@ -112,9 +100,9 @@ export const funHu: Cv = {
       'Natasa, Luna, Kira és Sura (fentről lefelé), a code review bizottságom: minden pull requestet alaposan átnéznek – úgy, hogy ráalszanak.',
   },
   contactCta: {
-    text: 'A négy macskám átnézi a postát, de a kedves leveleket továbbengedik.',
+    text: 'Írj bátran – gyorsabban válaszolok, mint ahogy lefut a build.',
     button: 'Írj, ha mersz!',
     subject: 'Szia Rika! 🦄',
   },
-  copyright: 'Rika – két kávé között készült, négy macska hagyta jóvá.',
+  copyright: 'Rika – nálam működik.',
 }

@@ -18,7 +18,7 @@ export const proHu: Cv = {
     },
     {
       ...jobs.epamProject,
-      intro: 'Kihelyezett szoftverfejlesztőként (staff augmentation) több nagyvállalati projekten az ukrajnai háború miatt kieső fejlesztőket helyettesítettem, hogy az ügyfelek üzletmenete zavartalan maradjon.',
+      intro: 'Kihelyezett szoftverfejlesztőként (staff augmentation) egy banki alkalmazás fejlesztésén dolgoztam az ügyfél csapatában.',
       highlights: [
         'Különböző összetettségű React és TypeScript komponenseket fejlesztettem egy 4 front-end és 1 full-stack fejlesztőből álló csapatban.',
         'Modernizáltam a front-end eszközkészletet a jobb felhasználói élményért.',

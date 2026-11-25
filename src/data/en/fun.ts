@@ -7,7 +7,7 @@ export const funEn: Cv = {
   title: 'Full-stack unicorn',
   tagline: 'Teamplayer / Continuous learner / Internet (l)user / Humble-Hungry-Smart / ENTP',
   summary:
-    'Started as a front-end unicorn in 2021, full-stack unicorn since 2023. My daily bread: React with TypeScript up front, Node.js with Express in the back – and lately I keep flirting with Rust. Every line passes my strict code review board of four cats – Natasa, Luna, Kira and Sura (approval = sitting on the keyboard). When things get tricky, I call in AI backup – first Copilot, now Claude. I call it Claude-ing.',
+    'Started out on the front end in 2021, working across the full stack since 2023. My daily bread: React with TypeScript up front, Node.js with Express in the back – and lately I keep flirting with Rust. Claude is my pair-programming buddy, and my four cats – Natasa, Luna, Kira and Sura – are my toughest audience.',
   photo: {
     src: photos.fun,
     alt: 'Erika lying on her back, hiding her face behind her hands, bright red hair fanned out, with a pixel speech bubble saying “I’m a unicorn”',
@@ -35,11 +35,11 @@ export const funEn: Cv = {
   experience: [
     {
       ...jobs.exchange,
-      company: 'Legal Money Dealer',
-      period: '2023 – still counting',
-      role: 'Money Juggler',
+      company: 'Forint–Euro Dating Agency',
+      period: '2024 – still counting',
+      role: 'Money Dealer',
       intro:
-        'Plot twist: these days I convert currencies instead of coffee. Euros, dollars and forints line up at my counter, the cash drawer always balances – and after hours the board game project goes on.',
+        'Turns out money can be refactored too: one big note goes in, a handful of small ones come out, zero bugs. Forints and euros meet at my counter, and I just whisper the exchange rate. In the evening I exchange myself back into a developer – nobody has asked for a receipt yet.',
     },
     {
       ...jobs.epamProject,
@@ -47,48 +47,36 @@ export const funEn: Cv = {
       location: 'Sunny Szeged',
       period: '2023 – one busy year',
       role: 'Coffee-to-Code Converter',
-      intro: 'Rent-a-dev (staff augmentation): came off the bench into several enterprise teams – I stepped in, and the game went on.',
-      highlights: [
-        'Built components from tiny to gigantic with a crew of 4 front-end devs and 1 full-stack all-rounder.',
-        'Gave the front-end tooling a well-deserved glow-up.',
-        'Hunted bugs and refactored like nobody was watching (the code reviewers were, though).',
-        'Met deadlines so tight they squeaked – and still never skipped a coffee break.',
-        'Stand-ups, sprint plannings, pair programming duets and customer meetings – survived them all with a smile and a mug of coffee.',
-      ],
+      intro:
+        "I moved into a bank's code for a year. This time I didn't count the money – I pushed pixels around until every button landed exactly where the designer dreamed it would. I lured the bugs out with coffee, and code reviews taught me that 'just a tiny change' is never tiny.",
     },
     {
       ...jobs.epamJunior,
-      company: 'Same as previous',
+      company: 'Same place, still in beta',
       location: 'Still sunny Szeged',
       period: '2022 – 2023, junior era',
-      role: 'Chief Question Asker',
-      intro: "We put the construction site in everyone's pocket: a mobile app for the construction industry – no cranes, no dust, no hard hat needed.",
-      highlights: [
-        'Junior of a four-piece front-end band: a lead developer, two seniors and me – the one with the most questions (and the most sticky notes).',
-        'Unit tests kept the code in order – my slightly OCD side counted every bracket twice.',
-        'The coffee break was the most productive meeting of the day: that is where the best ideas were born.',
-        'Delivered on time, even when the deadline was yesterday.',
-        'Later guided the newcomers – from question asker to question answerer.',
-      ],
+      role: 'Professional “why is this red?” asker',
+      intro:
+        'I built a mobile app for the construction industry, so technically I worked on a building site – just in headphones instead of a hard hat. Every day I asked the seniors why something was red, and every day they patiently explained. By the time I ran out of questions, I was the one telling the newcomers why it was red.',
     },
     {
       ...jobs.bank,
       company: 'Fort Knox, Hungarian branch',
       period: '2016 – 2021, golden years',
-      role: 'Chief Vault Keeper',
+      role: 'Chief Treasurer',
       intro:
-        'Before the code came the cash: as head cashier I watched over the vault, kept the daily cash flowing and made sure the ATMs never went hungry.',
+        'For five years the vault key was my best friend. So many banknotes passed through my hands that I can spot a crumpled one with my eyes closed. I fed the ATMs the way other people feed their cats: on time, every single day – and not once did they say thank you.',
     },
   ],
   projects: [
     {
       ...projects.boardGame,
-      company: 'My board game baby',
+      company: 'Bedroom Studios Ltd.',
       location: 'Night shift, unpaid',
       period: '2023 – to be continued',
-      role: 'One-unicorn army',
+      role: 'CEO, intern and cleaner in one',
       intro:
-        'My after-hours project: a social deduction board game for the browser, where friends gather around a virtual table at night. From 2023 to 2024 I wrote every line by hand – React and MobX up front, Node.js and Express with WebSockets in the back. Then the AI helpers arrived: Copilot in 2025, Claude in 2026 – with them the code learned TypeScript, the server was reborn in Rust, the players got voice chat over WebRTC, and a whole pile of Vitest and Playwright tests appeared. 2,400+ commits later, the village still survives the night.',
+        'A board game I write at night, played at night: the villagers try to survive the night, and I try to survive a deadline nobody ever set. On weekends my friends test the game; on weekdays the bugs test me. Will it ever be finished? Someday. Maybe. Until then: one more commit.',
     },
   ],
   education: [
@@ -112,9 +100,9 @@ export const funEn: Cv = {
       'Natasa, Luna, Kira and Sura (top to bottom), my code review board: every pull request gets their full attention – they review it by sleeping on it.',
   },
   contactCta: {
-    text: 'My four cats screen the inbox, but they let the nice messages through.',
+    text: 'Drop me a line – I reply faster than the build finishes.',
     button: 'Slide into my inbox',
     subject: 'Hello Rika! 🦄',
   },
-  copyright: 'Rika – hand-crafted between two coffees, approved by four cats.',
+  copyright: 'Rika – works on my machine.',
 }
