@@ -30,7 +30,7 @@ export const funHu: Cv = {
     'Barkácsolás, újrahasznosítás, refaktorálás',
     'Bugkeresés (főleg a sajátjaimban)',
   ],
-  languages: ['Angol (B2)', 'Magyar (anyanyelv)', 'Dothraki (alapfok)', 'Halandzsa (folyékony)', 'Lorem ipsum (anyanyelvi szint)'],
+  languages: ['Hunglish (C3)', 'Dothraki (alapfok)', 'Halandzsa (folyékony)', 'Lorem ipsum (anyanyelvi szint)'],
   // no company names in the fun version – playful ones instead; same sections and order as the pro version, but no tech details
   experience: [
     {

@@ -14,12 +14,15 @@ interface CopyrightProps {
   hint?: { label: string; href: string; onClick: (origin: Point) => void }
 }
 
-/** The small print at the very bottom of the page: serious in the pro version, playful in the fun one. */
+/**
+ * The small print at the very bottom of the page: serious in the pro version, playful in the fun one. ʚїɞ before the name:
+ * the little butterfly Rika used to send in chats (the favicon too).
+ */
 export function Copyright({ text, hint }: CopyrightProps) {
   return (
     <p className="text-center text-xs leading-relaxed">
       <span className="opacity-75 fun:opacity-90">
-        © {year} {text}
+        © {year} ʚїɞ {text}
       </span>
       {hint && (
         <>

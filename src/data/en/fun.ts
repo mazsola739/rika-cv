@@ -30,7 +30,7 @@ export const funEn: Cv = {
     'DIY, recycling and refactoring',
     'Bug hunting (mostly in my own code)',
   ],
-  languages: ['English (B2)', 'Hungarian (native)', 'Dothraki (basic)', 'Gibberish (fluent)', 'Lorem ipsum (native speaker)'],
+  languages: ['Hunglish (C3)', 'Dothraki (basic)', 'Gibberish (fluent)', 'Lorem ipsum (native speaker)'],
   // no company names in the fun version – playful ones instead; same sections and order as the pro version, but no tech details
   experience: [
     {
