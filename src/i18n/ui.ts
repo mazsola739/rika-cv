@@ -109,7 +109,7 @@ export const ui = {
     funSections: {
       contact: 'Ping me',
       expertise: 'Superpowers',
-      languages: 'Polyglot mode',
+      languages: 'Tower of Babel',
       experience: 'Things I passed off as work',
       otherExperience: 'Where the money moves',
       projects: 'What I do for free',
@@ -162,7 +162,7 @@ export const ui = {
     funSections: {
       contact: 'Ping me',
       expertise: 'Szupererők',
-      languages: 'Poliglott mód',
+      languages: 'Bábeli zűrzavar',
       experience: 'Amit munkának tettettem',
       otherExperience: 'Ahol a pénz forog',
       projects: 'Amit ingyen csinálok',
