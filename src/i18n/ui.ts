@@ -165,7 +165,7 @@ export const ui = {
       languages: 'Poliglott mód',
       experience: 'Amit munkának tettettem',
       otherExperience: 'Ahol a pénz forog',
-      projects: 'Amit ingyen is csinálok',
+      projects: 'Amit ingyen csinálok',
       education: 'Padawan-évek',
       skills: 'Töltöttség',
     },
